@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STYLE FIT V2.2｜個人專屬膠囊衣櫥 × 174cm / 69kg 造型實驗室</title>
+  <!-- 載入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 載入 FontAwesome 圖示庫 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- 載入 Inter 與 Noto Sans TC 字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            oat: '#F6F5F1',
+            obsidian: '#1C1917',
+            camel: '#9A6B3F',
+            camelDark: '#7C532E',
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans TC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* 全域高級男裝 Lookbook 基礎設定 */
+    html, body {
+      background-color: #F6F5F1;
+      color: #1C1917;
+      font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 細膩雜誌卡片陰影 */
+    .lookbook-card {
+      box-shadow: 0 10px 30px -8px rgba(28, 25, 23, 0.07), 0 2px 8px -2px rgba(28, 25, 23, 0.03);
+    }
+
+    /* 三大棚拍與實景背景主題 */
+    .scene-studio {
+      background: radial-gradient(circle at 50% 25%, #FFFFFF 0%, #F1F0EC 56%, #E3E0D8 100%);
+    }
+    .scene-cafe {
+      background:
+        linear-gradient(90deg, rgba(112, 82, 54, 0.14) 1px, transparent 1px) 0 0 / 56px 56px,
+        linear-gradient(180deg, #EFE5D8 0%, #DFCCB6 64%, #9C7D5E 64.6%, #7A5F46 100%);
+    }
+    .scene-street {
+      background:
+        linear-gradient(180deg, #E5E7EB 0%, #D4D4D8 65%, #A1A1AA 65.5%, #71717A 100%);
+    }
+
+    /* 3:7 比例輔助線柔和呼吸動畫 */
+    @keyframes ratioPulse {
+      0%, 100% { opacity: 0.96; }
+      50% { opacity: 0.65; }
+    }
+    .ratio-guide-layer {
+      animation: ratioPulse 3.2s infinite ease-in-out;
+    }
+
+    /* 頁籤橫向捲動時隱藏捲軸 */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* 自訂捲軸 */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F6F5F1; }
+    ::-webkit-scrollbar-thumb { background: #C2BCB3; border-radius: 9999px; }
+  </style>
+</head>
+<body class="min-h-screen pb-20 selection:bg-camel/20 selection:text-obsidian">
+
+  <!-- ========================================================================= -->
+  <!-- 全域共用 SVG 材質紋理、漸層與陰影濾鏡庫（供無臉模特與單品卡片共用）         -->
+  <!-- ========================================================================= -->
+  <svg width="0" height="0" class="absolute pointer-events-none" aria-hidden="true">
+    <defs>
+      <!-- 模特與衣料投影 -->
+      <filter id="modelShadow" x="-15%" y="-10%" width="130%" height="125%">
+        <feDropShadow dx="0" dy="6" stdDeviation="5.5" flood-color="#1C1917" flood-opacity="0.18"/>
+      </filter>
+      <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#1C1917" flood-opacity="0.14"/>
+      </filter>
+
+      <!-- 暖調自然肌膚色漸層 -->
+      <linearGradient id="warmSkinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#EBC09E"/>
+        <stop offset="55%" stop-color="#DEA67F"/>
+        <stop offset="100%" stop-color="#C58960"/>
+      </linearGradient>
+
+      <!-- 霧面無臉棚拍模特頭部漸層 -->
+      <linearGradient id="mannequinHeadGrad" x1="18%" y1="0%" x2="82%" y2="100%">
+        <stop offset="0%" stop-color="#F2DAC7"/>
+        <stop offset="55%" stop-color="#E1B797"/>
+        <stop offset="100%" stop-color="#C79470"/>
+      </linearGradient>
+
+      <!-- #01 水洗黑仿舊翻領皮夾克漸層 -->
+      <linearGradient id="washedLeatherGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3E3D3A"/>
+        <stop offset="28%" stop-color="#22211F"/>
+        <stop offset="55%" stop-color="#474642"/>
+        <stop offset="82%" stop-color="#1B1B19"/>
+        <stop offset="100%" stop-color="#31302E"/>
+      </linearGradient>
+
+      <!-- #02 莫蘭迪灰綠古巴領襯衫漸層 -->
+      <linearGradient id="oliveShirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8D9382"/>
+        <stop offset="50%" stop-color="#767C6C"/>
+        <stop offset="100%" stop-color="#5E6455"/>
+      </linearGradient>
+
+      <!-- #03 BJHG 黑白灰漸層暈染格紋 (Shadow Plaid) -->
+      <pattern id="shadowPlaidPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+        <rect width="30" height="30" fill="#1F2120"/>
+        <rect x="0" y="6" width="30" height="9" fill="#525654" opacity="0.68"/>
+        <rect x="6" y="0" width="9" height="30" fill="#525654" opacity="0.68"/>
+        <rect x="0" y="9" width="30" height="3.2" fill="#E4E7E5" opacity="0.82"/>
+        <rect x="9" y="0" width="3.2" height="30" fill="#E4E7E5" opacity="0.82"/>
+        <rect x="21" y="0" width="2.2" height="30" fill="#9CA3AF" opacity="0.42"/>
+        <rect x="0" y="21" width="30" height="2.2" fill="#9CA3AF" opacity="0.42"/>
+      </pattern>
+
+      <!-- #04 淺灰華夫格立體蜂窩織紋 -->
+      <pattern id="waffleGreyPattern" width="6" height="6" patternUnits="userSpaceOnUse">
+        <rect width="6" height="6" fill="#D5D7D5"/>
+        <rect x="0.6" y="0.6" width="4" height="4" fill="#C1C4C2" opacity="0.78"/>
+        <rect x="1.4" y="1.4" width="2.2" height="2.2" fill="#E5E7E5" opacity="0.78"/>
+      </pattern>
+
+      <!-- #05 燕麥杏老錢風細膩針織紋理 -->
+      <pattern id="oatmealKnitPattern" width="5" height="8" patternUnits="userSpaceOnUse">
+        <rect width="5" height="8" fill="#E1D7C6"/>
+        <line x1="1.2" y1="0" x2="1.2" y2="8" stroke="#CFC2AC" stroke-width="1" opacity="0.8"/>
+        <line x1="3.6" y1="0" x2="3.6" y2="8" stroke="#EFE8DB" stroke-width="0.9" opacity="0.7"/>
+      </pattern>
+
+      <!-- 燕麥杏針織羅紋下擺／袖口紋理 -->
+      <pattern id="oatmealRibPattern" width="4" height="10" patternUnits="userSpaceOnUse">
+        <rect width="4" height="10" fill="#D7CBB6"/>
+        <line x1="2" y1="0" x2="2" y2="10" stroke="#B7A88E" stroke-width="1.2"/>
+      </pattern>
+
+      <!-- 微光澤垂墜感襯衫漸層（供未來新增單品使用） -->
+      <linearGradient id="drapedSatinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3B3B3F"/>
+        <stop offset="40%" stop-color="#1E1E21"/>
+        <stop offset="70%" stop-color="#35353A"/>
+        <stop offset="100%" stop-color="#18181B"/>
+      </linearGradient>
+
+      <!-- #11 BJHG 灰褐立體打褶繭型褲絨面漸層 -->
+      <linearGradient id="taupeSuedeGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+        <stop offset="0%" stop-color="#6F5F4F"/>
+        <stop offset="48%" stop-color="#867563"/>
+        <stop offset="100%" stop-color="#584B3E"/>
+      </linearGradient>
+
+      <!-- #12 復古水洗藍綠彎刀牛仔褲刷色漸層 -->
+      <linearGradient id="vintageDenimGrad" x1="0%" y1="0%" x2="100%" y2="12%">
+        <stop offset="0%" stop-color="#314755"/>
+        <stop offset="28%" stop-color="#617C84"/>
+        <stop offset="50%" stop-color="#38505D"/>
+        <stop offset="74%" stop-color="#658088"/>
+        <stop offset="100%" stop-color="#2A3E4A"/>
+      </linearGradient>
+
+      <!-- #14 淺花灰落地棉質寬褲紋理漸層 -->
+      <linearGradient id="heatherGreyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#C6C5C2"/>
+        <stop offset="50%" stop-color="#DAD9D6"/>
+        <stop offset="100%" stop-color="#B9B8B4"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- 全域浮動 Toast 提示區（絕不使用原生 alert） -->
+  <div id="toast-container" class="fixed top-20 right-4 z-50 space-y-2 pointer-events-none max-w-xs w-full"></div>
+
+  <!-- ========================================================================= -->
+  <!-- 頂部固定工具列 Top Bar                                                     -->
+  <!-- ========================================================================= -->
+  <header class="bg-obsidian/95 backdrop-blur-md text-stone-100 sticky top-0 z-40 border-b border-stone-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+      <!-- 品牌與本機存檔狀態 -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-camel to-camelDark flex items-center justify-center font-black text-sm tracking-tight text-white shadow border border-amber-300/20 shrink-0">
+          SF
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="font-black text-sm sm:text-base tracking-widest uppercase">STYLE FIT <span class="text-amber-400/90 font-bold text-xs">V2.2</span></span>
+          <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-700/60 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            本機存檔已啟用（GitHub Pages 專屬版）
+          </span>
+        </div>
+      </div>
+
+      <!-- 工具列按鈕：AI API 設定 / 匯出備份 / 匯入還原 / 重置預設 18 件 -->
+      <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <button onclick="openApiModal()" class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-200 px-3 py-2 rounded-xl border border-stone-700 transition flex items-center gap-1.5 font-semibold">
+          <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+          <span class="hidden sm:inline">AI 識圖 API 設定</span>
+          <span class="sm:hidden">AI 設定</span>
+        </button>
+        <button onclick="exportWardrobeJson()" class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-200 px-3 py-2 rounded-xl border border-stone-700 transition flex items-center gap-1.5 font-semibold">
+          <i class="fa-solid fa-download text-camel"></i>
+          <span>匯出備份</span>
+        </button>
+        <label class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-200 px-3 py-2 rounded-xl border border-stone-700 transition flex items-center gap-1.5 font-semibold cursor-pointer">
+          <i class="fa-solid fa-upload text-emerald-400"></i>
+          <span>匯入還原</span>
+          <input type="file" id="import-json-input" accept=".json,application/json" class="hidden" onchange="importWardrobeJson(event)">
+        </label>
+        <button onclick="openResetModal()" class="text-xs bg-stone-800 hover:bg-red-950/70 hover:border-red-800 text-stone-300 hover:text-red-200 px-3 py-2 rounded-xl border border-stone-700 transition flex items-center gap-1.5 font-semibold">
+          <i class="fa-solid fa-rotate-left text-amber-400"></i>
+          <span class="hidden md:inline">重置預設 18 件</span>
+          <span class="md:hidden">重置</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- 首頁頂部個人形象卡片（Hero Banner）＋ 四大主頁籤導覽                         -->
+  <!-- ========================================================================= -->
+  <section class="max-w-7xl mx-auto px-4 mt-5">
+    <div class="bg-white rounded-3xl lookbook-card border border-stone-200/90 overflow-hidden">
+      <!-- 編輯美學 Hero 橫幅 -->
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-obsidian via-[#262220] to-[#342A23] text-stone-100 relative overflow-hidden">
+        <!-- 低調裝飾幾何線 -->
+        <div class="absolute -right-12 -top-12 w-56 h-56 rounded-full border border-amber-200/10 pointer-events-none"></div>
+        <div class="absolute right-10 -bottom-16 w-40 h-40 rounded-full border border-camel/20 pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div>
+            <div class="text-[11px] font-bold tracking-[0.25em] text-amber-300/90 uppercase mb-1.5">
+              PERSONAL CAPSULE WARDROBE &amp; FITTING ARCHIVE
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white leading-none">
+              STYLE FIT
+            </h1>
+            <p class="text-sm sm:text-base text-stone-300 mt-2 font-medium">
+              個人專屬膠囊衣櫥 × 174cm / 69kg 造型實驗室
+            </p>
+          </div>
+
+          <!-- 個人身形參數膠囊標籤 -->
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-xs font-semibold text-stone-100 flex items-center gap-1.5">
+              <i class="fa-solid fa-ruler-vertical text-amber-300 text-[11px]"></i> 身高 174cm / 體重 69kg
+            </span>
+            <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-xs font-semibold text-stone-100 flex items-center gap-1.5">
+              <i class="fa-solid fa-sun text-amber-300 text-[11px]"></i> 暖調自然肌
+            </span>
+            <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-xs font-semibold text-stone-100 flex items-center gap-1.5">
+              <i class="fa-solid fa-compass-drafting text-amber-300 text-[11px]"></i> 3:7 結構感比例引擎
+            </span>
+            <span class="px-3 py-1.5 rounded-full bg-camel/90 border border-amber-300/30 text-xs font-bold text-white flex items-center gap-1.5">
+              <i class="fa-solid fa-shirt text-[11px]"></i> 已收錄 <span id="hero-wardrobe-count">18</span> 件實戰單品
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 四大主頁籤導覽列 -->
+      <nav class="px-3 sm:px-5 py-3 bg-stone-50/90 border-t border-stone-200 flex overflow-x-auto no-scrollbar gap-2">
+        <button id="tab-btn-studio" onclick="switchTab('studio')" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition bg-obsidian text-white shadow-sm">
+          ✨ 造型師欽點實穿室
+        </button>
+        <button id="tab-btn-wardrobe" onclick="switchTab('wardrobe')" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-stone-600 hover:bg-stone-200/70">
+          👕 我的數位衣櫥（上傳／換實拍照）
+        </button>
+        <button id="tab-btn-weekly" onclick="switchTab('weekly')" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-stone-600 hover:bg-stone-200/70">
+          📅 一週 7 天實穿排程
+        </button>
+        <button id="tab-btn-guide" onclick="switchTab('guide')" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-stone-600 hover:bg-stone-200/70">
+          📐 174cm 穿搭法則與選購備忘
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 頁籤 1：✨ 造型師欽點實穿室（預設首頁畫面）                                  -->
+  <!-- ========================================================================= -->
+  <main id="section-studio" class="max-w-7xl mx-auto px-4 mt-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- 左欄：4 大靈感版控制面板與快速公式 (4 欄) -->
+      <div class="lg:col-span-4 space-y-5">
+        <div class="bg-white p-5 rounded-3xl lookbook-card border border-stone-200/90">
+          <div class="flex items-center justify-between mb-3.5">
+            <h2 class="text-sm font-black tracking-wide text-obsidian flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-camel"></i> 4 大風格靈感版
+            </h2>
+            <span class="text-[11px] font-semibold text-stone-400">動態評分引擎</span>
+          </div>
+
+          <!-- 4 大風格按鈕 -->
+          <div class="space-y-2 mb-4">
+            <button onclick="selectMoodboard('clean_fit')" id="mb-clean_fit" class="w-full text-left p-3 rounded-2xl border-2 border-obsidian bg-obsidian text-white transition flex items-center justify-between">
+              <div class="pr-2">
+                <div class="font-bold text-sm">韓系街頭 Clean Fit</div>
+                <div class="text-[11px] opacity-80 mt-0.5">上短下長、黑白灰與丹寧、約會俐落氣場</div>
+              </div>
+              <i class="fa-solid fa-circle-check text-amber-400 shrink-0"></i>
+            </button>
+
+            <button onclick="selectMoodboard('city_boy')" id="mb-city_boy" class="w-full text-left p-3 rounded-2xl border-2 border-stone-200 hover:border-stone-400 bg-white text-obsidian transition flex items-center justify-between">
+              <div class="pr-2">
+                <div class="font-bold text-sm">日系暖調 City Boy</div>
+                <div class="text-[11px] text-stone-500 mt-0.5">莫蘭迪灰綠、大地卡其、奶油白、看展拍照</div>
+              </div>
+              <i class="fa-regular fa-circle text-stone-300 shrink-0"></i>
+            </button>
+
+            <button onclick="selectMoodboard('athflow')" id="mb-athflow" class="w-full text-left p-3 rounded-2xl border-2 border-stone-200 hover:border-stone-400 bg-white text-obsidian transition flex items-center justify-between">
+              <div class="pr-2">
+                <div class="font-bold text-sm">都會運動混搭 Athflow</div>
+                <div class="text-[11px] text-stone-500 mt-0.5">外挺內軟、落地灰棉褲、厚底機能跑鞋</div>
+              </div>
+              <i class="fa-regular fa-circle text-stone-300 shrink-0"></i>
+            </button>
+
+            <button onclick="selectMoodboard('refined_villain')" id="mb-refined_villain" class="w-full text-left p-3 rounded-2xl border-2 border-stone-200 hover:border-stone-400 bg-white text-obsidian transition flex items-center justify-between">
+              <div class="pr-2">
+                <div class="font-bold text-sm flex items-center gap-1.5">
+                  <span>斯文敗類雅痞風</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-camel/15 text-camelDark font-black">HOT</span>
+                </div>
+                <div class="text-[11px] text-stone-500 mt-0.5">高智冷欲、領口微開、西裝寬褲＋皮衣/針織＋細框眼鏡</div>
+              </div>
+              <i class="fa-regular fa-circle text-stone-300 shrink-0"></i>
+            </button>
+          </div>
+
+          <!-- 氣溫層次切換 -->
+          <div class="mb-3.5">
+            <label for="layer-mode-select" class="block text-xs font-bold text-stone-500 mb-1.5">氣溫與層次模式</label>
+            <select id="layer-mode-select" onchange="generateRecommendedOutfit()" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm font-medium bg-oat focus:outline-none focus:border-obsidian">
+              <option value="layered">微涼疊穿（外搭／襯衫／半拉鍊 ＋ 內搭上衣）</option>
+              <option value="single">溫暖單穿（單穿上衣前紮 ＋ 廓形寬褲）</option>
+              <option value="triple">秋冬三層混搭（皮衣 ＋ 漸層格紋襯衫 ＋ 重磅白 T）</option>
+            </select>
+          </div>
+
+          <!-- 鎖定今日想穿單品 -->
+          <div class="mb-4">
+            <label for="lock-item-select" class="block text-xs font-bold text-stone-500 mb-1.5">鎖定今日想穿單品（選填）</label>
+            <select id="lock-item-select" onchange="generateRecommendedOutfit()" class="w-full p-2.5 rounded-xl border border-stone-300 text-xs sm:text-sm font-medium bg-oat focus:outline-none focus:border-obsidian">
+              <option value="">不鎖定，交由系統配對最高分組合</option>
+            </select>
+          </div>
+
+          <!-- 手動自由換裝折疊面板 -->
+          <details class="group bg-oat rounded-2xl p-3.5 border border-stone-200 mb-4">
+            <summary class="text-xs font-bold text-stone-700 cursor-pointer flex items-center justify-between list-none">
+              <span><i class="fa-solid fa-hand-pointer mr-1.5 text-camel"></i>手動自由換裝（自選全身每件單品）</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition group-open:rotate-180"></i>
+            </summary>
+            <div class="mt-3 pt-3 border-t border-stone-200 space-y-2.5 text-xs">
+              <div>
+                <span class="text-stone-500 font-semibold block mb-1">外搭 / 襯衫 / 半拉鍊</span>
+                <select id="manual-outer" onchange="applyManualSelection()" class="w-full p-2 rounded-lg border border-stone-300 bg-white"></select>
+              </div>
+              <div>
+                <span class="text-stone-500 font-semibold block mb-1">上衣 / 打底</span>
+                <select id="manual-top" onchange="applyManualSelection()" class="w-full p-2 rounded-lg border border-stone-300 bg-white"></select>
+              </div>
+              <div>
+                <span class="text-stone-500 font-semibold block mb-1">下身褲款</span>
+                <select id="manual-bottom" onchange="applyManualSelection()" class="w-full p-2 rounded-lg border border-stone-300 bg-white"></select>
+              </div>
+              <div>
+                <span class="text-stone-500 font-semibold block mb-1">鞋款配置</span>
+                <select id="manual-shoes" onchange="applyManualSelection()" class="w-full p-2 rounded-lg border border-stone-300 bg-white"></select>
+              </div>
+              <div>
+                <span class="text-stone-500 font-semibold block mb-1">眼鏡 / 配件（衣櫥新增後連動）</span>
+                <select id="manual-accessory" onchange="applyManualSelection()" class="w-full p-2 rounded-lg border border-stone-300 bg-white"></select>
+              </div>
+            </div>
+          </details>
+
+          <button onclick="generateRecommendedOutfit(true)" class="w-full py-3.5 bg-camel hover:bg-camelDark active:scale-[0.99] text-white font-black rounded-2xl shadow-md transition flex items-center justify-center gap-2 text-sm">
+            <i class="fa-solid fa-shuffle"></i> 換一套高分推薦穿搭
+          </button>
+        </div>
+
+        <!-- 造型師欽點實穿公式（一鍵直達） -->
+        <div class="bg-obsidian text-stone-100 p-4 rounded-3xl lookbook-card">
+          <div class="text-xs font-bold text-amber-400 mb-2.5 flex items-center gap-1.5">
+            <i class="fa-solid fa-star"></i> 造型師欽點滿分公式（一鍵換裝）
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="applyPresetLook('villain_oatmeal')" class="col-span-2 text-left p-3 rounded-2xl bg-gradient-to-r from-stone-800 to-stone-700 hover:from-stone-700 hover:to-stone-600 border border-camel/50 transition flex items-center justify-between">
+              <div>
+                <div class="font-bold text-amber-300">🖤 老錢風・斯文敗類雅痞</div>
+                <div class="text-[11px] text-stone-300 mt-0.5">燕麥杏半拉鍊針織 + 白T + 黑色打褶西裝褲 + 黑銀半框</div>
+              </div>
+              <i class="fa-solid fa-glasses text-amber-300 text-sm ml-2"></i>
+            </button>
+            <button onclick="applyPresetLook('waffle_street')" class="text-left p-2.5 rounded-2xl bg-stone-800 hover:bg-stone-700 border border-stone-700 transition">
+              <div class="font-bold text-white">🧊 華夫格韓系街頭</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">淺灰華夫格 + 彎刀牛仔褲</div>
+            </button>
+            <button onclick="applyPresetLook('villain_leather')" class="text-left p-2.5 rounded-2xl bg-stone-800 hover:bg-stone-700 border border-stone-700 transition">
+              <div class="font-bold text-white">🔥 暗黑皮衣雅痞</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">水洗黑皮衣 + 黑西裝寬褲</div>
+            </button>
+            <button onclick="applyPresetLook('cityboy_olive')" class="text-left p-2.5 rounded-2xl bg-stone-800 hover:bg-stone-700 border border-stone-700 transition">
+              <div class="font-bold text-white">🌿 灰綠古巴領暖陽</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">灰綠襯衫 + 卡其T + 米白寬褲</div>
+            </button>
+            <button onclick="applyPresetLook('athflow_mix')" class="text-left p-2.5 rounded-2xl bg-stone-800 hover:bg-stone-700 border border-stone-700 transition">
+              <div class="font-bold text-white">⚡ 華夫格都會混搭</div>
+              <div class="text-[10px] text-stone-400 mt-0.5">淺灰華夫格 + 淺花灰棉褲</div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：174cm / 69kg 無臉模特實穿繪製室 + 單品拆解與指導 (8 欄) -->
+      <div class="lg:col-span-8">
+        <div class="bg-white rounded-3xl lookbook-card border border-stone-200/90 overflow-hidden">
+
+          <!-- 實穿室標題列 -->
+          <div class="px-5 py-4 border-b border-stone-200 flex flex-wrap justify-between items-center gap-3 bg-stone-50/70">
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span id="current-mood-badge" class="text-[11px] font-black px-2.5 py-0.5 bg-obsidian text-amber-300 rounded-md">
+                  斯文敗類雅痞風
+                </span>
+                <span class="text-xs font-semibold text-stone-500">174cm / 69kg 無臉模特動態實穿繪製室</span>
+              </div>
+              <h3 id="current-look-title" class="text-base sm:text-lg font-black text-obsidian mt-1">
+                載入穿搭中...
+              </h3>
+            </div>
+            <div class="text-right">
+              <div class="text-[10px] font-bold text-stone-400 uppercase tracking-wider">身形色彩契合度</div>
+              <div id="fit-score-display" class="text-2xl font-black text-camel leading-none mt-0.5">98%</div>
+            </div>
+          </div>
+
+          <!-- 實穿室互動控制列：比例線 / 髮型 / 眼鏡試戴 / 棚拍場景 -->
+          <div class="px-4 py-3 bg-oat/90 border-b border-stone-200 flex flex-wrap items-center gap-2">
+            <button onclick="toggleGuideLines()" id="guide-toggle-btn" class="text-xs px-3 py-2 rounded-xl font-bold border border-camel bg-camel/10 text-camelDark transition flex items-center gap-1.5">
+              <i class="fa-solid fa-ruler-combined"></i> 3:7 比例線：開
+            </button>
+            <button onclick="cycleHairstyle()" id="hair-style-btn" class="text-xs px-3 py-2 rounded-xl font-semibold border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 transition">
+              <i class="fa-solid fa-user mr-1 text-stone-500"></i>髮型：韓系 6:4 微捲
+            </button>
+            <button onclick="cycleEyewearPreview()" id="eyewear-style-btn" class="text-xs px-3 py-2 rounded-xl font-semibold border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 transition">
+              <i class="fa-solid fa-glasses mr-1 text-camel"></i>眼鏡：經典黑銀半框
+            </button>
+            <button onclick="cycleStudioScene()" id="scene-style-btn" class="text-xs px-3 py-2 rounded-xl font-semibold border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 transition">
+              <i class="fa-solid fa-camera-retro mr-1 text-stone-500"></i>場景：極簡灰白棚拍
+            </button>
+          </div>
+
+          <!-- 實穿舞台與單品拆解 -->
+          <div class="grid grid-cols-1 md:grid-cols-12">
+
+            <!-- 左側：全身無臉模特畫布 (7 欄) -->
+            <div id="mannequin-stage" class="md:col-span-7 relative flex flex-col items-center justify-between p-4 sm:p-5 scene-studio transition-all duration-300 min-h-[545px]">
+              <!-- 規格與顯高指標浮標 -->
+              <div class="w-full flex justify-between items-start z-10 pointer-events-none">
+                <div class="bg-obsidian/85 backdrop-blur-md text-white px-3 py-1.5 rounded-xl text-[11px] space-y-0.5 shadow">
+                  <div class="font-bold text-amber-300 tracking-wider">LOOKBOOK SPEC</div>
+                  <div>174cm · 69kg · 暖調自然肌</div>
+                </div>
+                <div class="bg-white/90 backdrop-blur-md text-obsidian px-3 py-1.5 rounded-xl text-right shadow border border-white/80">
+                  <div class="text-[10px] font-bold text-stone-500">3:7 視覺顯高評估</div>
+                  <div id="visual-height-score" class="text-sm font-black text-camel">視覺 179 cm</div>
+                </div>
+              </div>
+
+              <!-- 高精緻度全身無臉模特 SVG -->
+              <div id="svg-mannequin-wrapper" class="w-full max-w-[330px] my-auto flex items-center justify-center relative">
+                <!-- 由 buildMannequinSVG() 動態注入 -->
+              </div>
+
+              <!-- 底部微調提示條 -->
+              <div class="w-full z-10 mt-2 flex items-center justify-between gap-2 bg-white/85 backdrop-blur-sm px-3.5 py-2 rounded-xl border border-stone-200/80 text-[11px] text-stone-600">
+                <span><i class="fa-solid fa-circle-info text-camel mr-1"></i>點擊上方按鈕可即時切換髮型、眼鏡與棚拍場景</span>
+                <button onclick="downloadMannequinSvg()" class="shrink-0 font-bold text-obsidian hover:text-camel transition flex items-center gap-1">
+                  <i class="fa-solid fa-image"></i> 存圖
+                </button>
+              </div>
+            </div>
+
+            <!-- 右側：當前全身著用單品 + 造型師指導 (5 欄) -->
+            <div class="md:col-span-5 p-5 flex flex-col justify-between bg-white border-t md:border-t-0 md:border-l border-stone-200">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-black uppercase text-stone-400 tracking-wider">當前全身著用單品</span>
+                  <span class="text-[11px] text-camel font-bold">點相機可換成你的實拍照</span>
+                </div>
+                <div id="active-items-list" class="space-y-2.5">
+                  <!-- 動態渲染單品小卡 -->
+                </div>
+              </div>
+
+              <!-- 造型師實戰細節解析 -->
+              <div class="mt-5 bg-oat rounded-2xl p-4 border border-stone-200/90">
+                <div class="text-xs font-black text-obsidian mb-2 flex items-center gap-1.5">
+                  <i class="fa-solid fa-user-tie text-camel"></i> 造型師 174cm / 69kg 實穿重點
+                </div>
+                <ul id="stylist-tips-list" class="text-xs text-stone-600 space-y-1.5 list-disc list-inside leading-relaxed">
+                  <!-- 動態渲染 -->
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 頁籤 2：👕 我的數位衣櫥（上傳照片 / 自動壓縮 / 換實拍照 / 分類管理）         -->
+  <!-- ========================================================================= -->
+  <section id="section-wardrobe" class="max-w-7xl mx-auto px-4 mt-6 hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- 左側：新增單品照片表單 (4 欄) -->
+      <div class="lg:col-span-4">
+        <div class="bg-white p-5 rounded-3xl lookbook-card border border-stone-200/90 lg:sticky lg:top-20">
+          <h2 class="text-base font-black text-obsidian mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-camera text-camel"></i> 新增衣物 / 眼鏡 / 配件
+          </h2>
+          <p class="text-xs text-stone-500 mb-4">照片將自動壓縮（420px / JPEG 0.8）永久保存於瀏覽器本機，並即時加入 4 大靈感版評分</p>
+
+          <form id="add-garment-form" onsubmit="handleAddNewGarment(event)" class="space-y-3 text-xs sm:text-sm">
+            <!-- 照片上傳框 -->
+            <div>
+              <div onclick="document.getElementById('new-garment-file').click()" class="border-2 border-dashed border-stone-300 hover:border-camel rounded-2xl p-4 text-center cursor-pointer transition bg-oat h-40 flex flex-col items-center justify-center relative overflow-hidden">
+                <img id="new-garment-preview" class="absolute inset-0 w-full h-full object-contain bg-white p-2 hidden" alt="上傳單品預覽">
+                <div id="new-garment-placeholder" class="space-y-1">
+                  <i class="fa-solid fa-cloud-arrow-up text-2xl text-stone-400"></i>
+                  <div class="font-bold text-stone-600 text-xs">點擊拍照或從相簿選擇照片</div>
+                  <div class="text-[11px] text-stone-400">支援 JPG / PNG / WebP，自動壓縮防容量爆滿</div>
+                </div>
+              </div>
+              <input type="file" id="new-garment-file" accept="image/*" class="hidden" onchange="previewNewGarmentFile(event)">
+
+              <!-- 選配 AI 自動辨識按鈕 -->
+              <button type="button" id="ai-autotag-btn" onclick="autoTagUploadedPhoto()" class="hidden mt-2 w-full py-2 px-3 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold transition flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-wand-magic-sparkles text-camel"></i> 使用 Gemini AI 自動辨識衣物屬性
+              </button>
+            </div>
+
+            <div>
+              <label for="new-garment-name" class="block text-xs font-bold text-stone-500 mb-1">單品名稱</label>
+              <input type="text" id="new-garment-name" required placeholder="例如：黑色修身半高領針織衫、不規則多邊形細銀框眼鏡" class="w-full p-2.5 rounded-xl border border-stone-300 bg-oat focus:bg-white focus:outline-none focus:border-obsidian">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label for="new-garment-cat" class="block text-xs font-bold text-stone-500 mb-1">分類</label>
+                <select id="new-garment-cat" class="w-full p-2.5 rounded-xl border border-stone-300 bg-oat">
+                  <option value="top" selected>上衣 / 打底</option>
+                  <option value="outer">外搭 / 襯衫 / 半拉鍊</option>
+                  <option value="bottom">褲款 / 短褲</option>
+                  <option value="shoes">鞋款</option>
+                  <option value="accessory">眼鏡 / 配件</option>
+                </select>
+              </div>
+              <div>
+                <label for="new-garment-color" class="block text-xs font-bold text-stone-500 mb-1">主色調</label>
+                <select id="new-garment-color" class="w-full p-2.5 rounded-xl border border-stone-300 bg-oat">
+                  <option value="black">曜石黑 / 炭黑</option>
+                  <option value="white">純白 / 奶油米白</option>
+                  <option value="oatmeal">燕麥杏 / 奶茶杏</option>
+                  <option value="grey">淺花灰 / 深灰 / 鐵灰</option>
+                  <option value="earth">大地卡其 / 灰褐</option>
+                  <option value="coffee">復古咖啡棕</option>
+                  <option value="olive">莫蘭迪灰綠 / 軍綠</option>
+                  <option value="navy">海昌深藍 / 復古丹寧</option>
+                  <option value="mist_blue">低飽和霧藍色</option>
+                  <option value="plaid">黑白灰漸層格紋</option>
+                  <option value="silver_frame">冷調細銀框金屬</option>
+                  <option value="half_frame">經典黑銀半框</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="new-garment-cut" class="block text-xs font-bold text-stone-500 mb-1">版型剪裁（連動無臉模特輪廓與評分）</label>
+              <select id="new-garment-cut" class="w-full p-2.5 rounded-xl border border-stone-300 bg-oat">
+                <optgroup label="外搭 / 襯衫 / 半拉鍊">
+                  <option value="boxy">短寬結構感 Boxy Fit / 翻領皮衣</option>
+                  <option value="half_zip_waffle">半拉鍊立領華夫格衛衣</option>
+                  <option value="half_zip_knit">老錢風半拉鍊立領針織衫</option>
+                  <option value="cuban">長袖古巴領襯衫 (V字修飾臉型)</option>
+                  <option value="short_cuban">短袖古巴領襯衫 (夏季清爽層次)</option>
+                  <option value="draped_shirt">微光澤垂墜感襯衫 (斯文敗類開釦)</option>
+                </optgroup>
+                <optgroup label="上衣 / 打底">
+                  <option value="oversized" selected>落肩寬鬆 Oversized (前紮顯高)</option>
+                  <option value="mock_neck">修身半高領打底衫 (冬季禁慾疊穿)</option>
+                </optgroup>
+                <optgroup label="褲款 / 短褲">
+                  <option value="wide_pleated">打褶直筒闊腿西裝褲 (3:7黃金比例)</option>
+                  <option value="barrel_curved">立體繭型褲 / 彎刀牛仔寬褲</option>
+                  <option value="sweat_wide">垂墜落地棉褲 / 工裝寬褲</option>
+                  <option value="cargo_shorts">寬版尼龍／棉麻工裝短褲 (夏季)</option>
+                </optgroup>
+                <optgroup label="鞋款">
+                  <option value="flat_retro">修長平底復古鞋 (Adidas Samba)</option>
+                  <option value="chunky_tech">厚底增高機能跑鞋 (+4cm)</option>
+                  <option value="derby_leather">厚底增高黑色德比皮鞋 (+5cm)</option>
+                </optgroup>
+                <optgroup label="眼鏡 / 配件">
+                  <option value="silver_polygon">不規則多邊形細銀框眼鏡</option>
+                  <option value="browline_half">經典黑銀半框眼鏡</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div>
+              <span class="block text-xs font-bold text-stone-500 mb-1">適用風格（可複選）</span>
+              <div class="grid grid-cols-2 gap-1.5 text-xs bg-oat p-2.5 rounded-xl border border-stone-200">
+                <label class="flex items-center gap-1.5 cursor-pointer font-medium text-stone-700">
+                  <input type="checkbox" name="new-garment-styles" value="clean_fit" checked class="accent-obsidian"> 韓系 Clean Fit
+                </label>
+                <label class="flex items-center gap-1.5 cursor-pointer font-medium text-stone-700">
+                  <input type="checkbox" name="new-garment-styles" value="city_boy" checked class="accent-obsidian"> 日系 City Boy
+                </label>
+                <label class="flex items-center gap-1.5 cursor-pointer font-medium text-stone-700">
+                  <input type="checkbox" name="new-garment-styles" value="athflow" class="accent-obsidian"> 運動混搭 Athflow
+                </label>
+                <label class="flex items-center gap-1.5 cursor-pointer font-medium text-stone-700">
+                  <input type="checkbox" name="new-garment-styles" value="refined_villain" checked class="accent-obsidian"> 斯文敗類雅痞風
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-obsidian hover:bg-stone-800 text-white font-black rounded-2xl transition shadow">
+              <i class="fa-solid fa-plus mr-1"></i> 加入我的數位衣櫥
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- 右側：衣櫥分類檢視網格 (8 欄) -->
+      <div class="lg:col-span-8 space-y-4">
+        <div class="bg-white p-3.5 rounded-2xl lookbook-card border border-stone-200/90 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="filterWardrobeCategory('all')" id="filter-all" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-obsidian text-white">全部 (18)</button>
+            <button onclick="filterWardrobeCategory('outer')" id="filter-outer" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200">外搭 / 襯衫 / 半拉鍊</button>
+            <button onclick="filterWardrobeCategory('top')" id="filter-top" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200">上衣</button>
+            <button onclick="filterWardrobeCategory('bottom')" id="filter-bottom" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200">褲款</button>
+            <button onclick="filterWardrobeCategory('shoes')" id="filter-shoes" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200">鞋款</button>
+            <button onclick="filterWardrobeCategory('accessory')" id="filter-accessory" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200">眼鏡 / 配件</button>
+          </div>
+          <span class="text-[11px] text-stone-400 font-medium">所有更動自動儲存於本機</span>
+        </div>
+
+        <div id="wardrobe-cards-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <!-- 動態渲染單品卡片 -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 頁籤 3：📅 一週 7 天實穿排程                                                -->
+  <!-- ========================================================================= -->
+  <section id="section-weekly" class="max-w-7xl mx-auto px-4 mt-6 hidden">
+    <div class="bg-white p-5 sm:p-6 rounded-3xl lookbook-card border border-stone-200/90">
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-6 pb-4 border-b border-stone-200">
+        <div>
+          <h2 class="text-lg sm:text-xl font-black text-obsidian">一週 7 天不重複無臉模特實穿排程</h2>
+          <p class="text-xs text-stone-500 mt-1">自動交錯 4 大風格靈感版；點擊任一天即可載入「造型師欽點實穿室」放大檢視與微調</p>
+        </div>
+        <button onclick="shuffleWeeklySchedule()" class="px-4 py-2.5 bg-camel hover:bg-camelDark text-white text-xs font-black rounded-xl shadow transition flex items-center gap-1.5">
+          <i class="fa-solid fa-shuffle"></i> 重新洗牌一週排程
+        </button>
+      </div>
+
+      <div id="weekly-lookbook-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+        <!-- 動態渲染週一至週日 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 頁籤 4：📐 174cm 穿搭法則與選購備忘（含本機持久化勾選清單）                   -->
+  <!-- ========================================================================= -->
+  <section id="section-guide" class="max-w-7xl mx-auto px-4 mt-6 hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- 左欄：174cm / 69kg 黃金比例與臉型法則 (7 欄) -->
+      <div class="lg:col-span-7 space-y-5">
+        <div class="bg-white p-6 rounded-3xl lookbook-card border border-stone-200/90">
+          <div class="flex items-center gap-2.5 mb-4">
+            <div class="w-9 h-9 rounded-xl bg-obsidian text-amber-300 flex items-center justify-center">
+              <i class="fa-solid fa-compass-drafting"></i>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-black text-obsidian">174cm / 69kg 個人專屬身形修飾法則</h2>
+              <p class="text-xs text-stone-500">依據暖調自然肌與俐落方圓下顎線條整理的核心原則</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+            <div class="p-4 rounded-2xl bg-oat border border-stone-200/80 space-y-1.5">
+              <div class="font-black text-obsidian text-sm flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-md bg-camel text-white text-[11px] flex items-center justify-center">1</span>
+                領口 V 字延伸（修飾下顎）
+              </div>
+              <p class="text-stone-600 leading-relaxed">避免厚重連帽大學 T 在脖子堆積；優先選用<b>古巴領襯衫、翻領皮夾克、半拉鍊立領微開約 5cm 露出白 T</b>，視覺立刻拉長臉型與脖頸比例。</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-oat border border-stone-200/80 space-y-1.5">
+              <div class="font-black text-obsidian text-sm flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-md bg-camel text-white text-[11px] flex items-center justify-center">2</span>
+                3:7 黃金腰線（視覺 179cm）
+              </div>
+              <p class="text-stone-600 leading-relaxed">上衣衣長鎖定 <b>67–69cm</b>。單穿落肩 T 時將正面下擺往褲頭塞一小角（French Tuck）露出皮帶扣，切出高腰線立即顯高 5 公分。</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-oat border border-stone-200/80 space-y-1.5">
+              <div class="font-black text-obsidian text-sm flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-md bg-camel text-white text-[11px] flex items-center justify-center">3</span>
+                鞋褲絕配公式（拒絕五五身）
+              </div>
+              <p class="text-stone-600 leading-relaxed"><b>彎刀牛仔褲 / 繭型褲 / 落地灰棉褲</b>配 <b>On 全黑厚底跑鞋 (+4cm)</b> 撐起褲管不拖地；<b>黑色打褶西裝褲 / 米白寬褲</b>配 <b>Adidas Samba 德訓鞋</b> 或厚底德比鞋最修長。</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-oat border border-stone-200/80 space-y-1.5">
+              <div class="font-black text-obsidian text-sm flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-md bg-camel text-white text-[11px] flex items-center justify-center">4</span>
+                髮型與斯文敗類眼鏡關鍵
+              </div>
+              <p class="text-stone-600 leading-relaxed">避免厚重貼額的純黑齊瀏海；吹出<b>韓系 6:4 微捲露出眉心小倒 V</b>，搭配<b>不規則多邊形細銀框</b>或<b>經典黑銀半框眼鏡</b>注入冷冽折角，氣場直接翻倍。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 色彩搭配速查卡片 -->
+        <div class="bg-white p-6 rounded-3xl lookbook-card border border-stone-200/90">
+          <h3 class="text-sm sm:text-base font-black text-obsidian mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-palette text-camel"></i> 暖調自然肌「命定色盤 vs. 避雷色」
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200">
+              <div class="font-bold text-emerald-900 mb-1.5">✅ 最襯膚色、無腦顯白的高級色系</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-semibold text-stone-700">純白 / 奶油米白（反光板）</span>
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-semibold text-stone-700">燕麥杏 / 大地卡其</span>
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-semibold text-stone-700">復古咖啡棕</span>
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-semibold text-stone-700">莫蘭迪灰綠 / 低飽和霧藍</span>
+                <span class="px-2.5 py-1 rounded-lg bg-white border border-stone-200 font-semibold text-stone-700">水洗炭灰 / 曜石黑</span>
+              </div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-red-50/70 border border-red-200">
+              <div class="font-bold text-red-900 mb-1.5">🚫 建議直接避開的顯黃／失衡雷區</div>
+              <p class="text-red-800/90 leading-relaxed">
+                暗土薑黃色（容易讓暖膚色顯蠟黃）、高飽和螢光水綠／克萊因藍／亮橘色（壓過五官且難搭寬褲）、冷調淡粉／淡紫色（與硬挺俐落男裝風格衝突）、過厚膨脹搖粒絨或縮口貼腿褲。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右欄：互動式換季選購備忘清單 (5 欄) -->
+      <div class="lg:col-span-5 space-y-5">
+        <div class="bg-white p-6 rounded-3xl lookbook-card border border-stone-200/90">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h2 class="text-base font-black text-obsidian flex items-center gap-2">
+                <i class="fa-solid fa-bag-shopping text-camel"></i> 未來進階選購備忘清單
+              </h2>
+              <p class="text-xs text-stone-500 mt-0.5">長褲與基礎素 T 已封頂，只需針對以下缺口慢慢補齊（勾選自動存檔）</p>
+            </div>
+          </div>
+
+          <div id="wishlist-container" class="space-y-2.5 text-xs">
+            <!-- 由 JS 渲染並持久化於 localStorage -->
+          </div>
+        </div>
+
+        <!-- 跨裝置同步小教學 -->
+        <div class="bg-obsidian text-stone-200 p-5 rounded-3xl lookbook-card text-xs space-y-2">
+          <div class="font-bold text-amber-300 flex items-center gap-1.5 text-sm">
+            <i class="fa-solid fa-mobile-screen-button"></i> GitHub Pages 跨裝置同步秘訣
+          </div>
+          <p class="text-stone-300 leading-relaxed">
+            本網站已全面改用本機永久存檔，只要使用 Chrome 或 Safari 開啟你的 GitHub Pages 網址，新增的衣物照片與勾選備忘都會自動保留，重新整理絕不遺失。
+          </p>
+          <p class="text-stone-400 leading-relaxed">
+            若想把手機新增的新衣同步到電腦，只要點擊頂部<b>「匯出備份 (.json)」</b>傳到另一台裝置點<b>「匯入還原」</b>即可 1 秒完成同步！
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- 彈窗 1：選填 Gemini API Key 設定（供 AI 自動識圖使用）                      -->
+  <!-- ========================================================================= -->
+  <div id="api-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-stone-200">
+      <div class="flex justify-between items-center">
+        <h3 class="text-base font-black text-obsidian flex items-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-camel"></i> AI 識圖 API 設定（選填）
+        </h3>
+        <button onclick="closeApiModal()" class="text-stone-400 hover:text-obsidian w-8 h-8 rounded-full hover:bg-stone-100 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="text-xs text-stone-600 leading-relaxed">
+        本網站所有穿搭推薦、無臉模特實穿與數位衣櫥管理皆 <b>100% 離線獨立運行</b>，不需填入任何金鑰即可完整使用。<br><br>
+        若你希望在上傳新衣照片時「一鍵由 AI 自動辨識名稱、顏色與版型」，可貼上 Google AI Studio 免費申請的 Gemini API Key（僅保存在你的本機瀏覽器中）。
+      </p>
+      <div>
+        <label for="gemini-api-key-input" class="block text-xs font-bold text-stone-500 mb-1">Gemini API Key</label>
+        <input type="password" id="gemini-api-key-input" placeholder="貼上 AIzaSy... 金鑰（留空則停用 AI 自動辨識）" class="w-full p-2.5 rounded-xl border border-stone-300 bg-oat focus:bg-white focus:outline-none focus:border-obsidian text-sm">
+      </div>
+      <div class="flex justify-between items-center pt-2">
+        <button onclick="clearApiKey()" class="text-xs font-bold text-stone-400 hover:text-red-600 transition">清除已存金鑰</button>
+        <div class="flex gap-2">
+          <button onclick="closeApiModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700">取消</button>
+          <button onclick="saveApiKey()" class="px-4 py-2 rounded-xl text-xs font-bold bg-obsidian hover:bg-stone-800 text-white">儲存設定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 彈窗 2：重置預設 18 件確認視窗（完全取代 confirm）                           -->
+  <!-- ========================================================================= -->
+  <div id="reset-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl border border-stone-200">
+      <div class="w-12 h-12 rounded-2xl bg-amber-100 text-camelDark flex items-center justify-center text-xl">
+        <i class="fa-solid fa-rotate-left"></i>
+      </div>
+      <h3 class="text-base font-black text-obsidian">重置為預設 18 件專屬衣櫥？</h3>
+      <p class="text-xs text-stone-600 leading-relaxed">
+        將恢復為你的 18 件實戰單品（包含淺灰華夫格半拉鍊立領衛衣與燕麥杏老錢風半拉鍊針織衫），並清除未匯出備份的自訂項目。
+      </p>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeResetModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700">取消</button>
+        <button onclick="confirmResetWardrobe()" class="px-4 py-2 rounded-xl text-xs font-bold bg-obsidian hover:bg-stone-800 text-white">確定重置</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 彈窗 3：單品刪除確認視窗（完全取代 confirm）                                -->
+  <!-- ========================================================================= -->
+  <div id="delete-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 shadow-2xl border border-stone-200">
+      <div class="w-12 h-12 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-xl">
+        <i class="fa-solid fa-trash-can"></i>
+      </div>
+      <h3 class="text-base font-black text-obsidian">確定要移除這件單品？</h3>
+      <p id="delete-modal-text" class="text-xs text-stone-600 leading-relaxed"></p>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="closeDeleteModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700">取消</button>
+        <button onclick="confirmDeleteItem()" class="px-4 py-2 rounded-xl text-xs font-bold bg-red-600 hover:bg-red-700 text-white">確認移除</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 主程式邏輯（100% 純原生 JS + localStorage 持久化 + SVG 繪製引擎）            -->
+  <!-- ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. 常數、色系對照表與 18 件預設實戰衣櫥資料庫
+    // -------------------------------------------------------------------------
+    const STORAGE_KEY_WARDROBE = 'stylefit_v22_wardrobe';
+    const STORAGE_KEY_WISHLIST = 'stylefit_v22_wishlist';
+    const STORAGE_KEY_APIKEY   = 'stylefit_v22_gemini_key';
+
+    const COLOR_META = {
+      black:        { label: '曜石黑 / 炭黑',   hex: '#22211F' },
+      white:        { label: '純白 / 奶油米白', hex: '#F6F5F0' },
+      oatmeal:      { label: '燕麥杏 / 奶茶杏', hex: '#E1D7C6' },
+      grey:         { label: '淺花灰 / 淺灰',   hex: '#B8B7B4' },
+      earth:        { label: '大地卡其 / 灰褐', hex: '#867360' },
+      coffee:       { label: '復古咖啡棕',      hex: '#5B4030' },
+      olive:        { label: '莫蘭迪灰綠',      hex: '#767C6C' },
+      navy:         { label: '海昌深藍 / 丹寧', hex: '#33485C' },
+      mist_blue:    { label: '低飽和霧藍色',    hex: '#6E8292' },
+      plaid:        { label: '黑白灰漸層格紋',  hex: '#3F4241' },
+      silver_frame: { label: '冷調細銀框金屬',  hex: '#D4D4D8' },
+      half_frame:   { label: '經典黑銀半框',    hex: '#27272A' }
+    };
+
+    const DEFAULT_WARDROBE_18 = [
+      // 外搭 / 襯衫 / 半拉鍊類 (5 件)
+      {
+        id: 'o1', name: '水洗黑仿舊翻領皮夾克', category: 'outer', color: 'black', cut: 'boxy',
+        styles: ['clean_fit', 'athflow', 'refined_villain'],
+        desc: '短寬 Boxy 剪裁＋硬挺翻領，敞開穿能修飾肩線並拉高腰線，也是斯文敗類暗黑氣場主力。'
+      },
+      {
+        id: 'o2', name: '灰綠古巴領長袖襯衫', category: 'outer', color: 'olive', cut: 'cuban',
+        styles: ['city_boy', 'clean_fit', 'refined_villain'],
+        desc: '莫蘭迪灰綠開領 V 字剪裁修飾下顎骨感，袖口隨性反摺露出手錶更顯精實清爽。'
+      },
+      {
+        id: 'o3', name: 'BJHG 黑白漸層格紋襯衫', category: 'outer', color: 'plaid', cut: 'oversized',
+        styles: ['clean_fit', 'city_boy', 'athflow'],
+        desc: '暈染漸層格紋補齊素色衣櫥的視覺層次，適合敞開外罩或夾在皮衣內做秋冬三層疊穿。'
+      },
+      {
+        id: 'o4', name: '淺灰華夫格半拉鍊立領衛衣', category: 'outer', color: 'grey', cut: 'half_zip_waffle',
+        styles: ['clean_fit', 'athflow', 'city_boy'],
+        desc: '立體蜂窩華夫格紋理不單調，將拉鍊下拉 5cm 微露重磅白 T 領口，清爽修飾臉部線條。'
+      },
+      {
+        id: 'o5', name: '燕麥杏老錢風半拉鍊針織衫', category: 'outer', color: 'oatmeal', cut: 'half_zip_knit',
+        styles: ['city_boy', 'clean_fit', 'refined_villain'],
+        desc: '細膩針織垂墜感＋羅紋袖口下擺，溫潤襯托暖調膚色，配黑西裝寬褲與半框眼鏡極具雅痞感。'
+      },
+
+      // 上衣 / 打底類 (5 件)
+      {
+        id: 't1', name: '重磅純白圓領短 T', category: 'top', color: 'white', cut: 'boxy',
+        styles: ['clean_fit', 'city_boy', 'athflow', 'refined_villain'],
+        desc: '粗羅紋硬挺領口，臉部最佳反光板，作為皮衣、襯衫與半拉鍊內搭能自然提亮並切出腰線。'
+      },
+      {
+        id: 't2', name: '重磅海昌深藍短 T', category: 'top', color: 'navy', cut: 'boxy',
+        styles: ['city_boy', 'athflow'],
+        desc: '沉穩海昌深藍配灰褐繭型褲或卡其工裝褲，能穿出高級「藍土撞色」日系質感。'
+      },
+      {
+        id: 't3', name: '暖調卡其色上衣', category: 'top', color: 'earth', cut: 'oversized',
+        styles: ['city_boy', 'athflow'],
+        desc: '最襯托健康暖調膚色的命定大地色，搭奶油米白寬褲或外罩灰綠襯衫親和力滿分。'
+      },
+      {
+        id: 't4', name: '基礎黑色上衣', category: 'top', color: 'black', cut: 'oversized',
+        styles: ['clean_fit', 'athflow', 'refined_villain'],
+        desc: '視覺收斂力最強，搭皮衣與黑西裝寬褲散發冷冽氣場，搭卡其工裝褲則硬派俐落。'
+      },
+      {
+        id: 't5', name: '冰川灰/淺灰上衣', category: 'top', color: 'grey', cut: 'oversized',
+        styles: ['clean_fit', 'city_boy', 'athflow'],
+        desc: '柔和無彩色過渡單品，正面下擺微紮配黑色打褶西裝寬褲即可完成極簡 Clean Fit。'
+      },
+
+      // 褲款類 (6 件)
+      {
+        id: 'b1', name: 'BJHG 灰褐立體打褶繭型褲', category: 'bottom', color: 'earth', cut: 'barrel_curved',
+        styles: ['city_boy'],
+        desc: '膝部立體收摺與微絨面質感，不挑腿型且單穿素 T 配這條就極具日系設計感。'
+      },
+      {
+        id: 'b2', name: '復古水洗藍綠彎刀牛仔褲', category: 'bottom', color: 'navy', cut: 'barrel_curved',
+        styles: ['clean_fit', 'city_boy'],
+        desc: '弧形彎刀寬褲管＋腰間銀色鑰匙圈細節，搭配短寬皮衣或淺灰華夫格半拉鍊帥度翻倍。'
+      },
+      {
+        id: 'b3', name: '奶油米白直筒微寬褲', category: 'bottom', color: 'white', cut: 'wide_pleated',
+        styles: ['city_boy', 'clean_fit', 'refined_villain'],
+        desc: '乾淨明亮的直筒微寬褲型，與灰綠古巴領、燕麥杏針織或深色上衣都能搭出輕熟高級感。'
+      },
+      {
+        id: 'b4', name: '淺花灰落地棉質寬褲', category: 'bottom', color: 'grey', cut: 'sweat_wide',
+        styles: ['athflow'],
+        desc: '垂墜感極佳的休閒棉褲，搭配硬挺皮衣或華夫格半拉鍊與全黑厚底跑鞋，舒適又不邋遢。'
+      },
+      {
+        id: 'b5', name: '黑色打褶闊腿西裝褲', category: 'bottom', color: 'black', cut: 'wide_pleated',
+        styles: ['clean_fit', 'refined_villain'],
+        desc: '正面雙打褶垂直延伸線條，是斯文敗類雅痞風與約會穿搭最顯腿長的定海神針。'
+      },
+      {
+        id: 'b6', name: '經典卡其色工裝褲', category: 'bottom', color: 'earth', cut: 'sweat_wide',
+        styles: ['city_boy', 'athflow'],
+        desc: '立體口袋份量感十足，搭配黑色或海昌深藍上衣與厚底鞋能達成絕佳視覺平衡。'
+      },
+
+      // 鞋款類 (2 雙)
+      {
+        id: 's1', name: 'Adidas Samba 德訓鞋', category: 'shoes', color: 'white', cut: 'flat_retro',
+        styles: ['clean_fit', 'city_boy', 'refined_villain'],
+        desc: '白皮鞋身、黑三條線與焦糖生膠底，修長鞋型最搭黑色西裝寬褲、米白寬褲與灰褐繭型褲。'
+      },
+      {
+        id: 's2', name: 'On Cloudmonster 全黑跑鞋', category: 'shoes', color: 'black', cut: 'chunky_tech',
+        styles: ['clean_fit', 'athflow', 'city_boy'],
+        desc: '4cm 雲端鏤空厚底增高，完美撐起超寬彎刀牛仔褲與淺花灰落地棉褲不拖地。'
+      }
+    ];
+
+    const DEFAULT_WISHLIST = [
+      { id: 'w1', season: '斯文敗類靈魂', title: '不規則多邊形細銀框 或 經典黑銀半框眼鏡', note: '注入銳利幾何折角，瞬間提升高智雅痞氣場', done: false },
+      { id: 'w2', season: '四季鞋履升級', title: '厚底增高黑色圓頭德比皮鞋 (+4~5cm)', note: '銜接黑色西裝寬褲與彎刀牛仔褲，視覺直達 180cm', done: false },
+      { id: 'w3', season: '冬季禁慾疊穿', title: '黑色修身半高領針織打底衫', note: '疊穿在水洗黑皮衣與灰綠襯衫裡，取代圓領更顯成熟', done: false },
+      { id: 'w4', season: '夏季清爽必補', title: '短袖古巴領襯衫（棉麻或細條紋）', note: '解決長袖襯衫盛夏悶熱問題，維持 V 領修飾效果', done: false },
+      { id: 'w5', season: '夏季下身必補', title: '寬版尼龍／棉麻工裝短褲（膝上 2~3cm）', note: '取代居家棉短褲，搭白長襪與 Samba 展現 City Boy 感', done: false },
+      { id: 'w6', season: '短袖進階補色', title: '280g 重磅素 T（咖啡色 / 霧藍色 / 深灰色）', note: '與現有 6 條寬褲完美互補，避開薑黃與高飽和螢光色', done: false },
+      { id: 'w7', season: '冬季寒流防風', title: '短寬無帽立領鋪棉外套', note: '不壓身高、防風保暖，與水洗黑皮夾克輪流替換', done: false }
+    ];
+
+    // -------------------------------------------------------------------------
+    // 2. 應用程式狀態管理
+    // -------------------------------------------------------------------------
+    let wardrobe = [];
+    let wishlist = [];
+    let currentMood = 'refined_villain';
+    let currentOutfit = { outer: null, midOuter: null, top: null, bottom: null, shoes: null, accessory: null, score: 98, tips: [] };
+    let showGuideLines = true;
+    let hairStyleIdx = 0;       // 0: 韓系6:4微捲, 1: 日系暖棕空氣碎蓋, 2: 極簡無臉輪廓
+    let eyewearPreviewIdx = 2;  // 0: 無眼鏡, 1: 不規則多邊形細銀框, 2: 經典黑銀半框
+    let studioSceneIdx = 0;     // 0: 極簡灰白棚拍, 1: 復古木窗咖啡廳, 2: 城市灰階街景
+    let currentFilter = 'all';
+    let pendingUploadDataUrl = null;
+    let pendingDeleteId = null;
+    let weeklySchedule = [];
+
+    // -------------------------------------------------------------------------
+    // 3. 本機 localStorage 讀寫工具（安全容錯）
+    // -------------------------------------------------------------------------
+    function loadFromLocalStorage() {
+      try {
+        const rawW = localStorage.getItem(STORAGE_KEY_WARDROBE);
+        if (rawW) {
+          const parsed = JSON.parse(rawW);
+          if (Array.isArray(parsed) && parsed.length > 0) wardrobe = parsed;
+        }
+      } catch (e) { /* 若讀取異常則使用預設值 */ }
+      if (!wardrobe.length) {
+        wardrobe = JSON.parse(JSON.stringify(DEFAULT_WARDROBE_18));
+        saveWardrobeToLocal();
+      }
+
+      try {
+        const rawWish = localStorage.getItem(STORAGE_KEY_WISHLIST);
+        if (rawWish) {
+          const parsedWish = JSON.parse(rawWish);
+          if (Array.isArray(parsedWish) && parsedWish.length > 0) wishlist = parsedWish;
+        }
+      } catch (e) { /* 忽略 */ }
+      if (!wishlist.length) {
+        wishlist = JSON.parse(JSON.stringify(DEFAULT_WISHLIST));
+        saveWishlistToLocal();
+      }
+    }
+
+    function saveWardrobeToLocal() {
+      try {
+        localStorage.setItem(STORAGE_KEY_WARDROBE, JSON.stringify(wardrobe));
+      } catch (e) {
+        showToast('本機儲存空間接近上限，建議先點擊「匯出備份 (.json)」並減少過大圖片。', 'warn');
+      }
+    }
+
+    function saveWishlistToLocal() {
+      try {
+        localStorage.setItem(STORAGE_KEY_WISHLIST, JSON.stringify(wishlist));
+      } catch (e) { /* 忽略 */ }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. 單品材質填色與精緻向量縮圖產生器
+    // -------------------------------------------------------------------------
+    function getGarmentFill(item) {
+      if (!item) return '#525252';
+      if (item.cut === 'half_zip_waffle' && item.color === 'grey') return 'url(#waffleGreyPattern)';
+      if (item.cut === 'half_zip_knit' && item.color === 'oatmeal') return 'url(#oatmealKnitPattern)';
+      if (item.cut === 'draped_shirt' && item.color === 'black') return 'url(#drapedSatinGrad)';
+      if (item.id === 'o1' || (item.category === 'outer' && item.cut === 'boxy' && item.color === 'black')) return 'url(#washedLeatherGrad)';
+      if (item.color === 'olive') return 'url(#oliveShirtGrad)';
+      if (item.color === 'plaid') return 'url(#shadowPlaidPattern)';
+      if (item.id === 'b2' || (item.category === 'bottom' && item.cut === 'barrel_curved' && item.color === 'navy')) return 'url(#vintageDenimGrad)';
+      if (item.id === 'b1' || (item.category === 'bottom' && item.cut === 'barrel_curved' && item.color === 'earth')) return 'url(#taupeSuedeGrad)';
+      if (item.category === 'bottom' && item.cut === 'sweat_wide' && item.color === 'grey') return 'url(#heatherGreyGrad)';
+      return COLOR_META[item.color]?.hex || '#666666';
+    }
+
+    function generateGarmentThumbnail(item) {
+      if (item.customPhoto) return item.customPhoto;
+      const fill = getGarmentFill(item);
+      const isLight = ['white', 'oatmeal', 'grey', 'silver_frame'].includes(item.color);
+      const strokeC = isLight ? '#A8A29E' : '#1C1917';
+      let svgBody = '';
+
+      if (item.category === 'accessory') {
+        if (item.cut === 'browline_half' || item.color === 'half_frame') {
+          svgBody = `
+            <path d="M26,84 Q58,74 90,85 L110,85 Q142,74 174,84" fill="none" stroke="#18181B" stroke-width="7.5" stroke-linecap="round"/>
+            <polygon points="34,85 88,85 84,118 40,118" fill="#E0F2FE" fill-opacity="0.3" stroke="#A1A1AA" stroke-width="2.2"/>
+            <polygon points="112,85 166,85 160,118 116,118" fill="#E0F2FE" fill-opacity="0.3" stroke="#A1A1AA" stroke-width="2.2"/>
+            <line x1="88" y1="88" x2="112" y2="88" stroke="#D4D4D8" stroke-width="3"/>
+          `;
+        } else {
+          svgBody = `
+            <polygon points="32,88 46,76 84,78 90,94 82,118 42,118" fill="#E0F2FE" fill-opacity="0.3" stroke="#71717A" stroke-width="2.5"/>
+            <polygon points="110,94 116,78 154,76 168,88 158,118 118,118" fill="#E0F2FE" fill-opacity="0.3" stroke="#71717A" stroke-width="2.5"/>
+            <line x1="90" y1="88" x2="110" y2="88" stroke="#71717A" stroke-width="2.5"/>
+            <line x1="16" y1="86" x2="32" y2="88" stroke="#A1A1AA" stroke-width="2.2"/>
+            <line x1="168" y1="88" x2="184" y2="86" stroke="#A1A1AA" stroke-width="2.2"/>
+          `;
+        }
+      } else if (item.category === 'outer') {
+        if (item.cut === 'half_zip_waffle' || item.cut === 'half_zip_knit') {
+          const ribFill = item.cut === 'half_zip_knit' ? 'url(#oatmealRibPattern)' : fill;
+          svgBody = `
+            <path d="M52,44 L80,26 L120,26 L148,44 L172,142 L146,148 L136,80 L136,158 L64,158 L64,80 L54,148 L28,142 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>
+            <rect x="64" y="146" width="72" height="12" fill="${ribFill}" stroke="${strokeC}" stroke-width="1"/>
+            <rect x="82" y="18" width="36" height="18" rx="3" fill="${fill}" stroke="${strokeC}" stroke-width="1.8"/>
+            <polygon points="92,24 100,48 108,24" fill="#FFFFFF"/>
+            <line x1="100" y1="24" x2="100" y2="78" stroke="#71717A" stroke-width="2.6"/>
+            <rect x="97.5" y="42" width="5" height="9" rx="1.5" fill="#27272A"/>
+          `;
+        } else if (item.id === 'o1' || (item.cut === 'boxy' && item.color === 'black')) {
+          svgBody = `
+            <path d="M54,40 L84,28 L116,28 L146,40 L170,136 L145,142 L135,76 L135,155 L65,155 L65,76 L55,142 L30,136 Z" fill="url(#washedLeatherGrad)" stroke="#141413" stroke-width="2"/>
+            <polygon points="84,28 68,54 95,62 100,40" fill="#2C2C2A" stroke="#575753" stroke-width="1"/>
+            <polygon points="116,28 132,54 105,62 100,40" fill="#2C2C2A" stroke="#575753" stroke-width="1"/>
+            <rect x="72" y="72" width="22" height="14" rx="2" fill="#1D1D1B" stroke="#575753" stroke-width="1"/>
+            <rect x="106" y="72" width="22" height="14" rx="2" fill="#1D1D1B" stroke="#575753" stroke-width="1"/>
+            <line x1="100" y1="44" x2="100" y2="155" stroke="#575753" stroke-width="2"/>
+          `;
+        } else if (item.cut === 'short_cuban') {
+          svgBody = `
+            <path d="M54,40 L82,28 L118,28 L146,40 L166,94 L138,102 L134,76 L134,156 L66,156 L66,76 L62,102 L34,94 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>
+            <polygon points="84,28 100,66 116,28" fill="#000000" opacity="0.22"/>
+            <line x1="100" y1="66" x2="100" y2="156" stroke="${strokeC}" stroke-width="1.4" opacity="0.6"/>
+          `;
+        } else if (item.color === 'plaid') {
+          svgBody = `
+            <path d="M52,38 L82,26 L118,26 L148,38 L172,140 L146,146 L136,78 L136,158 Q100,170 64,158 L64,78 L54,146 L28,140 Z" fill="url(#shadowPlaidPattern)" stroke="#1F2020" stroke-width="2"/>
+            <rect x="108" y="74" width="20" height="22" fill="url(#shadowPlaidPattern)" stroke="#D6D3D1" stroke-width="1"/>
+          `;
+        } else {
+          svgBody = `
+            <path d="M54,38 L82,28 L118,28 L146,38 L168,140 L144,146 L135,76 L135,156 L65,156 L65,76 L56,146 L32,140 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>
+            <polygon points="84,28 100,64 116,28" fill="#000000" opacity="0.2"/>
+            <rect x="108" y="76" width="20" height="22" fill="${fill}" stroke="${strokeC}" stroke-width="1" opacity="0.8"/>
+          `;
+        }
+      } else if (item.category === 'top') {
+        if (item.cut === 'mock_neck') {
+          svgBody = `<path d="M55,42 L82,32 L82,19 L118,19 L118,32 L145,42 L170,138 L146,144 L134,76 L134,156 L66,156 L66,76 L54,144 L30,138 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>`;
+        } else if (item.id === 't4' || item.id === 't5') {
+          svgBody = `<path d="M55,38 L80,28 Q100,36 120,28 L145,38 L170,138 L146,144 L134,76 L134,156 L66,156 L66,76 L54,144 L30,138 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>`;
+        } else {
+          svgBody = `<path d="M52,40 L80,28 Q100,36 120,28 L148,40 L166,92 L138,100 L132,74 L132,156 L68,156 L68,74 L62,100 L34,92 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>`;
+        }
+      } else if (item.category === 'bottom') {
+        if (item.cut === 'cargo_shorts') {
+          svgBody = `
+            <path d="M64,34 L136,34 L148,132 L106,132 L100,88 L94,132 L52,132 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>
+            <rect x="48" y="78" width="18" height="30" rx="2" fill="${fill}" stroke="${strokeC}" stroke-width="1.5"/>
+            <rect x="134" y="78" width="18" height="30" rx="2" fill="${fill}" stroke="${strokeC}" stroke-width="1.5"/>
+          `;
+        } else if (item.cut === 'barrel_curved' && item.color === 'navy') {
+          svgBody = `
+            <path d="M68,24 L132,24 C155,75 158,130 142,175 L105,175 L100,72 L95,175 L58,175 C42,130 45,75 68,24 Z" fill="url(#vintageDenimGrad)" stroke="#243440" stroke-width="2"/>
+            <circle cx="122" cy="42" r="5" fill="#E5E7EB" stroke="#6B7280" stroke-width="1.5"/>
+            <rect x="119" y="47" width="6" height="10" rx="2" fill="#F3F4F6" stroke="#6B7280" stroke-width="1"/>
+          `;
+        } else if (item.cut === 'barrel_curved') {
+          svgBody = `
+            <path d="M68,24 L132,24 L148,105 L138,175 L104,175 L100,70 L96,175 L62,175 L52,105 Z" fill="${fill}" stroke="#4A3F35" stroke-width="2"/>
+            <line x1="54" y1="102" x2="76" y2="118" stroke="#3E342C" stroke-width="2"/>
+            <line x1="146" y1="102" x2="124" y2="118" stroke="#3E342C" stroke-width="2"/>
+          `;
+        } else if (item.id === 'b6') {
+          svgBody = `
+            <path d="M68,24 L132,24 L144,175 L104,175 L100,68 L96,175 L56,175 Z" fill="${fill}" stroke="#5F4E3C" stroke-width="2"/>
+            <rect x="52" y="88" width="16" height="28" rx="2" fill="${fill}" stroke="#4F4030" stroke-width="1.5"/>
+            <rect x="132" y="88" width="16" height="28" rx="2" fill="${fill}" stroke="#4F4030" stroke-width="1.5"/>
+          `;
+        } else {
+          svgBody = `
+            <path d="M68,24 L132,24 L142,175 L104,175 L100,68 L96,175 L58,175 Z" fill="${fill}" stroke="${strokeC}" stroke-width="2"/>
+            <line x1="82" y1="26" x2="76" y2="155" stroke="${strokeC}" stroke-width="1.2" opacity="0.45"/>
+            <line x1="118" y1="26" x2="124" y2="155" stroke="${strokeC}" stroke-width="1.2" opacity="0.45"/>
+          `;
+        }
+      } else if (item.category === 'shoes') {
+        if (item.cut === 'flat_retro') {
+          svgBody = `
+            <path d="M35,115 Q35,82 65,82 L115,82 L145,102 Q168,106 168,122 L35,122 Z" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="2"/>
+            <path d="M135,100 Q166,104 166,120 L140,120 Z" fill="#D6D3D1"/>
+            <line x1="82" y1="92" x2="72" y2="116" stroke="#1C1917" stroke-width="4.5"/>
+            <line x1="94" y1="92" x2="84" y2="116" stroke="#1C1917" stroke-width="4.5"/>
+            <line x1="106" y1="92" x2="96" y2="116" stroke="#1C1917" stroke-width="4.5"/>
+            <rect x="34" y="120" width="135" height="12" rx="4" fill="#6E472B"/>
+          `;
+        } else if (item.cut === 'derby_leather') {
+          svgBody = `
+            <path d="M34,114 Q38,78 72,82 L118,82 L152,100 Q172,104 168,118 L34,118 Z" fill="#18181B" stroke="#09090B" stroke-width="2"/>
+            <rect x="32" y="114" width="138" height="18" rx="4" fill="#09090B"/>
+            <line x1="34" y1="115" x2="168" y2="115" stroke="#52525B" stroke-width="1.5" stroke-dasharray="3 2"/>
+          `;
+        } else {
+          svgBody = `
+            <path d="M35,112 Q38,76 70,78 L118,78 L148,98 Q170,102 168,118 L35,118 Z" fill="#1F1F22" stroke="#111" stroke-width="2"/>
+            <rect x="32" y="114" width="138" height="18" rx="8" fill="#141416"/>
+            <circle cx="55" cy="123" r="4" fill="#E5E5E5"/>
+            <circle cx="80" cy="123" r="4" fill="#E5E5E5"/>
+            <circle cx="105" cy="123" r="4" fill="#E5E5E5"/>
+            <circle cx="130" cy="123" r="4" fill="#E5E5E5"/>
+            <circle cx="150" cy="123" r="3.5" fill="#E5E5E5"/>
+          `;
+        }
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190">${svgBody}</svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. 核心：174cm / 69kg 無臉模特高精緻度動態實穿 SVG 繪製引擎
+    // -------------------------------------------------------------------------
+    function buildMannequinSVG(outfit, opts = {}) {
+      const isMini = !!opts.mini;
+      const showGuides = !isMini && showGuideLines;
+      const outer = outfit.outer || null;
+      const midOuter = outfit.midOuter || null;
+      const top = outfit.top || wardrobe.find(i => i.category === 'top');
+      const bottom = outfit.bottom || wardrobe.find(i => i.category === 'bottom');
+      const shoes = outfit.shoes || wardrobe.find(i => i.category === 'shoes');
+      const accessory = outfit.accessory || null;
+
+      const topFill = getGarmentFill(top);
+      const topStroke = ['white', 'oatmeal'].includes(top?.color) ? '#D6D3D1' : '#18181B';
+
+      // --- A. 鞋款繪製 ---
+      let shoesSVG = '';
+      if (shoes?.cut === 'derby_leather') {
+        shoesSVG = `
+          <g filter="url(#softShadow)">
+            <path d="M92,508 Q76,513 64,525 Q60,533 68,537 L142,537 L140,508 Z" fill="#18181B"/>
+            <rect x="62" y="532" width="82" height="13" rx="3" fill="#09090B" stroke="#3F3F46" stroke-width="1"/>
+            <path d="M178,508 L178,537 L252,537 Q260,533 256,525 Q244,513 228,508 Z" fill="#18181B"/>
+            <rect x="176" y="532" width="82" height="13" rx="3" fill="#09090B" stroke="#3F3F46" stroke-width="1"/>
+          </g>
+        `;
+      } else if (shoes?.cut === 'chunky_tech' || shoes?.color === 'black') {
+        // On Cloudmonster 全黑雲端鏤空厚底
+        shoesSVG = `
+          <g filter="url(#softShadow)">
+            <path d="M92,508 Q78,512 67,524 Q62,532 70,536 L142,536 Q146,522 140,508 Z" fill="#1E1E22"/>
+            <rect x="64" y="531" width="81" height="13" rx="6" fill="#121214" stroke="#2E2E32" stroke-width="1"/>
+            <circle cx="80" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="96" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="112" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="128" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <path d="M178,508 Q174,522 178,536 L250,536 Q258,532 253,524 Q242,512 228,508 Z" fill="#1E1E22"/>
+            <rect x="175" y="531" width="81" height="13" rx="6" fill="#121214" stroke="#2E2E32" stroke-width="1"/>
+            <circle cx="192" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="208" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="224" cy="537.5" r="2.8" fill="#D4D4D8"/>
+            <circle cx="240" cy="537.5" r="2.8" fill="#D4D4D8"/>
+          </g>
+        `;
+      } else {
+        // Adidas Samba 德訓鞋（白皮、淺灰麂皮頭、黑三條線、焦糖膠底）
+        shoesSVG = `
+          <g filter="url(#softShadow)">
+            <path d="M95,510 Q80,515 70,525 Q66,532 74,535 L140,535 L138,510 Z" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.2"/>
+            <path d="M70,524 Q66,531 74,534 L94,534 Q90,525 78,522 Z" fill="#D6D3D1"/>
+            <line x1="100" y1="518" x2="93" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <line x1="108" y1="518" x2="101" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <line x1="116" y1="518" x2="109" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <rect x="68" y="533" width="73" height="7" rx="3" fill="#6E472B"/>
+            <path d="M182,510 L180,535 L246,535 Q254,532 250,525 Q240,515 225,510 Z" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.2"/>
+            <path d="M250,524 Q254,531 246,534 L226,534 Q230,525 242,522 Z" fill="#D6D3D1"/>
+            <line x1="220" y1="518" x2="227" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <line x1="212" y1="518" x2="219" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <line x1="204" y1="518" x2="211" y2="532" stroke="#18181B" stroke-width="3.2"/>
+            <rect x="179" y="533" width="73" height="7" rx="3" fill="#6E472B"/>
+          </g>
+        `;
+      }
+
+      // --- B. 下身褲款繪製 ---
+      let pantsSVG = '';
+      if (bottom?.cut === 'cargo_shorts') {
+        const pFill = getGarmentFill(bottom);
+        pantsSVG = `
+          <g>
+            <!-- 露出小腿與羅紋白長襪 -->
+            <rect x="108" y="382" width="32" height="130" rx="10" fill="url(#warmSkinGrad)"/>
+            <rect x="180" y="382" width="32" height="130" rx="10" fill="url(#warmSkinGrad)"/>
+            <rect x="108" y="458" width="32" height="54" rx="4" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+            <rect x="180" y="458" width="32" height="54" rx="4" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+            <g filter="url(#modelShadow)">
+              <path d="M108,236 L212,236 L228,392 L166,392 L160,312 L154,392 L92,392 Z" fill="${pFill}" stroke="#44403C" stroke-width="1.6"/>
+              <rect x="88" y="316" width="22" height="40" rx="3" fill="${pFill}" stroke="#44403C" stroke-width="1.4"/>
+              <rect x="210" y="316" width="22" height="40" rx="3" fill="${pFill}" stroke="#44403C" stroke-width="1.4"/>
+            </g>
+          </g>
+        `;
+      } else if (bottom?.id === 'b2' || (bottom?.cut === 'barrel_curved' && bottom?.color === 'navy')) {
+        // 復古水洗藍綠彎刀牛仔褲＋腰間銀色鑰匙圈吊飾
+        pantsSVG = `
+          <g filter="url(#modelShadow)">
+            <path d="M108,236 L212,236 C250,325 256,435 236,518 L172,518 L160,318 L148,518 L84,518 C64,435 70,325 108,236 Z" fill="url(#vintageDenimGrad)" stroke="#23333F" stroke-width="1.8"/>
+            <path d="M122,240 C100,340 104,440 124,516" fill="none" stroke="#90A8B3" stroke-width="1.4" opacity="0.65"/>
+            <path d="M198,240 C220,340 216,440 196,516" fill="none" stroke="#90A8B3" stroke-width="1.4" opacity="0.65"/>
+            <circle cx="192" cy="252" r="5" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+            <rect x="187" y="257" width="10" height="17" rx="3" fill="#F3F4F6" stroke="#71717A" stroke-width="1.2"/>
+            <circle cx="192" cy="268" r="2.2" fill="#52525B"/>
+          </g>
+        `;
+      } else if (bottom?.cut === 'barrel_curved') {
+        // BJHG 灰褐立體打褶繭型褲＋膝部收摺
+        const pFill = getGarmentFill(bottom);
+        pantsSVG = `
+          <g filter="url(#modelShadow)">
+            <path d="M108,236 L212,236 L237,385 L220,516 L172,516 L160,315 L148,516 L100,516 L83,385 Z" fill="${pFill}" stroke="#473C32" stroke-width="1.8"/>
+            <line x1="130" y1="238" x2="116" y2="375" stroke="#3D332A" stroke-width="2" opacity="0.6"/>
+            <line x1="190" y1="238" x2="204" y2="375" stroke="#3D332A" stroke-width="2" opacity="0.6"/>
+            <line x1="84" y1="382" x2="118" y2="408" stroke="#3D332A" stroke-width="2.2"/>
+            <line x1="236" y1="382" x2="202" y2="408" stroke="#3D332A" stroke-width="2.2"/>
+          </g>
+        `;
+      } else if (bottom?.id === 'b6') {
+        // 經典卡其色工裝褲＋立體雙側口袋
+        const pFill = COLOR_META[bottom.color]?.hex || '#9C8468';
+        pantsSVG = `
+          <g filter="url(#modelShadow)">
+            <path d="M108,236 L212,236 L228,516 L170,516 L160,312 L150,516 L92,516 Z" fill="${pFill}" stroke="#614F3B" stroke-width="1.8"/>
+            <rect x="88" y="340" width="22" height="42" rx="3" fill="${pFill}" stroke="#574634" stroke-width="1.6"/>
+            <line x1="88" y1="350" x2="110" y2="350" stroke="#574634" stroke-width="1.4"/>
+            <rect x="210" y="340" width="22" height="42" rx="3" fill="${pFill}" stroke="#574634" stroke-width="1.6"/>
+            <line x1="210" y1="350" x2="232" y2="350" stroke="#574634" stroke-width="1.4"/>
+          </g>
+        `;
+      } else {
+        // 黑色打褶闊腿西裝褲 / 奶油米白直筒寬褲 / 淺花灰落地棉褲
+        const pFill = getGarmentFill(bottom);
+        const pStroke = bottom?.color === 'white' ? '#D6D3C9' : (bottom?.color === 'black' ? '#09090B' : '#9CA3AF');
+        const creaseColor = bottom?.color === 'black' ? '#3F3F46' : '#A8A29E';
+        const hasPleats = bottom?.cut === 'wide_pleated';
+        pantsSVG = `
+          <g filter="url(#modelShadow)">
+            <path d="M108,236 L212,236 C225,330 232,440 228,518 L170,518 L160,310 L150,518 L92,518 C88,440 95,330 108,236 Z" fill="${pFill}" stroke="${pStroke}" stroke-width="1.8"/>
+            ${hasPleats ? `
+              <line x1="128" y1="238" x2="118" y2="506" stroke="${creaseColor}" stroke-width="1.6" opacity="0.6"/>
+              <line x1="192" y1="238" x2="202" y2="506" stroke="${creaseColor}" stroke-width="1.6" opacity="0.6"/>
+            ` : ''}
+          </g>
+        `;
+      }
+
+      // --- C. 腰帶細節 (3:7 高腰線) ---
+      const beltSVG = `
+        <rect x="107" y="230" width="106" height="12" rx="2" fill="#18181B"/>
+        <rect x="153" y="229" width="14" height="14" rx="2" fill="none" stroke="#D4D4D8" stroke-width="2.2"/>
+        <line x1="160" y1="229" x2="160" y2="243" stroke="#D4D4D8" stroke-width="2"/>
+      `;
+
+      // --- D. 上衣／內搭繪製 ---
+      const isMockNeck = top?.cut === 'mock_neck';
+      const isLongTop = !outer && (top?.id === 't4' || top?.id === 't5' || isMockNeck);
+      const mockCollar = isMockNeck ? `<rect x="142" y="88" width="36" height="18" rx="3" fill="${topFill}" stroke="${topStroke}" stroke-width="1.5"/>` : '';
+
+      const topSVG = isLongTop ? `
+        <g filter="url(#softShadow)">
+          <path d="M96,112 L58,242 L84,248 L110,155 Z" fill="${topFill}" stroke="${topStroke}" stroke-width="1.5"/>
+          <path d="M224,112 L262,242 L236,248 L210,155 Z" fill="${topFill}" stroke="${topStroke}" stroke-width="1.5"/>
+          <ellipse cx="68" cy="256" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+          <ellipse cx="252" cy="256" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+          <path d="M96,112 L134,102 Q160,114 186,102 L224,112 L216,244 Q188,246 174,232 Q160,226 146,232 Q132,246 104,244 Z" fill="${topFill}" stroke="${topStroke}" stroke-width="1.6"/>
+          ${!isMockNeck ? `<path d="M136,102 Q160,118 184,102" fill="none" stroke="#FFFFFF" stroke-width="3.6"/>` : ''}
+          ${mockCollar}
+        </g>
+      ` : `
+        <g filter="url(#softShadow)">
+          ${!outer ? `
+            <path d="M78,175 L66,252 L86,254 L98,180 Z" fill="url(#warmSkinGrad)"/>
+            <path d="M242,175 L254,252 L234,254 L222,180 Z" fill="url(#warmSkinGrad)"/>
+            <rect x="65" y="236" width="21" height="6" rx="2" fill="#D4D4D8" stroke="#52525B" stroke-width="1"/>
+            <circle cx="75" cy="239" r="5" fill="#18181B" stroke="#E4E4E7" stroke-width="1.5"/>
+            <ellipse cx="75" cy="258" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+            <ellipse cx="245" cy="258" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+          ` : ''}
+          <path d="M95,112 L134,102 Q160,115 186,102 L225,112 L248,176 L218,184 L212,148 L214,238 Q188,242 172,231 Q160,226 148,231 Q132,242 106,238 L108,148 L102,184 L72,176 Z" fill="${topFill}" stroke="${topStroke}" stroke-width="1.6"/>
+          <path d="M132,103 Q160,120 188,103" fill="none" stroke="${topStroke}" stroke-width="3.4" opacity="0.55"/>
+          ${mockCollar}
+        </g>
+      `;
+
+      // --- E. 外搭 / 襯衫 / 半拉鍊立領衛衣與針織衫繪製 ---
+      let outerSVG = '';
+      if (outer) {
+        const midLayer = (midOuter && midOuter.id !== outer.id) ? `
+          <path d="M104,106 L128,100 L128,252 L98,248 Z" fill="url(#shadowPlaidPattern)" stroke="#27272A" stroke-width="1.2"/>
+          <path d="M216,106 L192,100 L192,252 L222,248 Z" fill="url(#shadowPlaidPattern)" stroke="#27272A" stroke-width="1.2"/>
+        ` : '';
+
+        if (outer.cut === 'half_zip_waffle') {
+          // 淺灰華夫格半拉鍊立領衛衣（立體蜂窩格紋＋微開拉鍊露白 T）
+          const wfFill = getGarmentFill(outer);
+          outerSVG = `
+            <g filter="url(#modelShadow)">
+              <path d="M90,112 L52,244 L82,250 L108,156 Z" fill="${wfFill}" stroke="#9CA3AF" stroke-width="1.5"/>
+              <path d="M230,112 L268,244 L238,250 L212,156 Z" fill="${wfFill}" stroke="#9CA3AF" stroke-width="1.5"/>
+              <ellipse cx="66" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="254" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M90,112 L134,94 L145,102 L160,137 L175,102 L186,94 L230,112 L222,240 Q160,248 98,240 Z" fill="${wfFill}" stroke="#9CA3AF" stroke-width="1.6"/>
+              <path d="M110,145 Q106,195 112,241" fill="none" stroke="#9CA3AF" stroke-width="1.2" opacity="0.65"/>
+              <path d="M210,145 Q214,195 208,241" fill="none" stroke="#9CA3AF" stroke-width="1.2" opacity="0.65"/>
+              <polygon points="134,94 121,119 148,128 160,137" fill="${wfFill}" stroke="#8D9299" stroke-width="1.4"/>
+              <polygon points="186,94 199,119 172,128 160,137" fill="${wfFill}" stroke="#8D9299" stroke-width="1.4"/>
+              <line x1="160" y1="137" x2="160" y2="176" stroke="#71717A" stroke-width="2.6"/>
+              <rect x="157.5" y="137" width="5" height="9" rx="1.5" fill="#27272A"/>
+            </g>
+          `;
+        } else if (outer.cut === 'half_zip_knit') {
+          // 燕麥杏老錢風半拉鍊針織衫（細膩針織＋羅紋下擺與袖口＋拉鍊）
+          const knFill = getGarmentFill(outer);
+          outerSVG = `
+            <g filter="url(#modelShadow)">
+              <path d="M90,112 L54,242 L82,248 L108,156 Z" fill="${knFill}" stroke="#BDB099" stroke-width="1.5"/>
+              <path d="M230,112 L266,242 L238,248 L212,156 Z" fill="${knFill}" stroke="#BDB099" stroke-width="1.5"/>
+              <polygon points="54,232 82,238 80,249 52,243" fill="url(#oatmealRibPattern)" stroke="#B3A48C" stroke-width="1"/>
+              <polygon points="266,232 238,238 240,249 268,243" fill="url(#oatmealRibPattern)" stroke="#B3A48C" stroke-width="1"/>
+              <ellipse cx="66" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="254" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M90,112 L134,92 L145,101 L160,139 L175,101 L186,92 L230,112 L222,236 Q160,246 98,236 Z" fill="${knFill}" stroke="#BDB099" stroke-width="1.6"/>
+              <path d="M98,224 Q160,234 222,224 L220,240 Q160,250 100,240 Z" fill="url(#oatmealRibPattern)" stroke="#B3A48C" stroke-width="1.2"/>
+              <polygon points="134,92 120,120 148,128 160,139" fill="url(#oatmealRibPattern)" stroke="#B3A48C" stroke-width="1.3"/>
+              <polygon points="186,92 200,120 172,128 160,139" fill="url(#oatmealRibPattern)" stroke="#B3A48C" stroke-width="1.3"/>
+              <line x1="160" y1="139" x2="160" y2="178" stroke="#A89F91" stroke-width="2.6"/>
+              <rect x="157.5" y="139" width="5" height="9" rx="1.5" fill="#71717A"/>
+            </g>
+          `;
+        } else if (outer.id === 'o1' || (outer.cut === 'boxy' && outer.color === 'black')) {
+          // 水洗黑仿舊翻領皮夾克＋翻領與雙胸蓋袋
+          outerSVG = `
+            ${midLayer}
+            <g filter="url(#modelShadow)">
+              <path d="M90,112 L54,246 L82,252 L106,155 Z" fill="url(#washedLeatherGrad)" stroke="#18181B" stroke-width="1.6"/>
+              <path d="M230,112 L266,246 L238,252 L214,155 Z" fill="url(#washedLeatherGrad)" stroke="#18181B" stroke-width="1.6"/>
+              <ellipse cx="67" cy="258" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="253" cy="258" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M90,112 L132,98 L138,244 L94,244 Z" fill="url(#washedLeatherGrad)" stroke="#18181B" stroke-width="1.8"/>
+              <path d="M230,112 L188,98 L182,244 L226,244 Z" fill="url(#washedLeatherGrad)" stroke="#18181B" stroke-width="1.8"/>
+              <rect x="98" y="146" width="32" height="16" rx="2" fill="#1C1C1A" stroke="#52524E" stroke-width="1.2"/>
+              <circle cx="114" cy="158" r="2" fill="#71717A"/>
+              <rect x="190" y="146" width="32" height="16" rx="2" fill="#1C1C1A" stroke="#52524E" stroke-width="1.2"/>
+              <circle cx="206" cy="158" r="2" fill="#71717A"/>
+              <polygon points="132,96 108,122 136,132" fill="#2E2E2C" stroke="#52524E" stroke-width="1.4"/>
+              <polygon points="188,96 212,122 184,132" fill="#2E2E2C" stroke="#52524E" stroke-width="1.4"/>
+            </g>
+          `;
+        } else if (outer.cut === 'short_cuban') {
+          // 夏季短袖古巴領襯衫
+          const scFill = getGarmentFill(outer);
+          const scStroke = ['white', 'oatmeal'].includes(outer.color) ? '#D6D3D1' : '#3F4439';
+          outerSVG = `
+            <g filter="url(#modelShadow)">
+              <path d="M78,176 L66,252 L86,254 L98,180 Z" fill="url(#warmSkinGrad)"/>
+              <path d="M242,176 L254,252 L234,254 L222,180 Z" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="74" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="246" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M92,114 L68,180 L98,186 L108,150 Z" fill="${scFill}" stroke="${scStroke}" stroke-width="1.5"/>
+              <path d="M228,114 L252,180 L222,186 L212,150 Z" fill="${scFill}" stroke="${scStroke}" stroke-width="1.5"/>
+              <path d="M92,114 L132,100 L138,244 L94,244 Z" fill="${scFill}" stroke="${scStroke}" stroke-width="1.6"/>
+              <path d="M228,114 L188,100 L182,244 L226,244 Z" fill="${scFill}" stroke="${scStroke}" stroke-width="1.6"/>
+              <polygon points="132,98 108,126 136,136" fill="${scFill}" stroke="${scStroke}" stroke-width="1.3"/>
+              <polygon points="188,98 212,126 184,136" fill="${scFill}" stroke="${scStroke}" stroke-width="1.3"/>
+            </g>
+          `;
+        } else if (outer.color === 'plaid') {
+          // BJHG 黑白灰漸層格紋襯衫
+          outerSVG = `
+            <g filter="url(#modelShadow)">
+              <path d="M90,114 L56,244 L84,250 L106,158 Z" fill="url(#shadowPlaidPattern)" stroke="#1F2020" stroke-width="1.6"/>
+              <path d="M230,114 L264,244 L236,250 L214,158 Z" fill="url(#shadowPlaidPattern)" stroke="#1F2020" stroke-width="1.6"/>
+              <ellipse cx="68" cy="256" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="252" cy="256" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M90,114 L132,100 L136,256 Q110,258 92,246 Z" fill="url(#shadowPlaidPattern)" stroke="#1F2020" stroke-width="1.6"/>
+              <path d="M230,114 L188,100 L184,256 Q210,258 228,246 Z" fill="url(#shadowPlaidPattern)" stroke="#1F2020" stroke-width="1.6"/>
+              <rect x="192" y="148" width="28" height="30" rx="2" fill="url(#shadowPlaidPattern)" stroke="#D4D4D8" stroke-width="1"/>
+              <line x1="196" y1="160" x2="216" y2="160" stroke="#FFFFFF" stroke-width="1.8"/>
+              <polygon points="132,98 112,120 135,126" fill="#27272A" stroke="#71717A" stroke-width="1.2"/>
+              <polygon points="188,98 208,120 185,126" fill="#27272A" stroke="#71717A" stroke-width="1.2"/>
+            </g>
+          `;
+        } else {
+          // 灰綠古巴領長袖襯衫 / 微光澤垂墜襯衫（袖口反摺露手錶細節）
+          const shFill = getGarmentFill(outer);
+          const shStroke = ['white', 'oatmeal'].includes(outer.color) ? '#D6D3D1' : '#3F4439';
+          outerSVG = `
+            <g filter="url(#modelShadow)">
+              <path d="M74,195 L66,252 L84,254 L94,198 Z" fill="url(#warmSkinGrad)"/>
+              <path d="M246,195 L254,252 L236,254 L226,198 Z" fill="url(#warmSkinGrad)"/>
+              <rect x="65" y="236" width="20" height="5" rx="2" fill="#E4E4E7" stroke="#52525B" stroke-width="1"/>
+              <circle cx="75" cy="238.5" r="4.5" fill="#18181B" stroke="#E4E4E7" stroke-width="1.2"/>
+              <ellipse cx="74" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <ellipse cx="246" cy="257" rx="11" ry="13" fill="url(#warmSkinGrad)"/>
+              <path d="M92,114 L64,198 L94,204 L108,154 Z" fill="${shFill}" stroke="${shStroke}" stroke-width="1.5"/>
+              <path d="M228,114 L256,198 L226,204 L212,154 Z" fill="${shFill}" stroke="${shStroke}" stroke-width="1.5"/>
+              <path d="M92,114 L132,100 L138,248 L94,248 Z" fill="${shFill}" stroke="${shStroke}" stroke-width="1.6"/>
+              <path d="M228,114 L188,100 L182,248 L226,248 Z" fill="${shFill}" stroke="${shStroke}" stroke-width="1.6"/>
+              <rect x="192" y="148" width="26" height="28" rx="2" fill="${shFill}" stroke="${shStroke}" stroke-width="1.2"/>
+              <polygon points="132,98 108,125 136,135" fill="${shFill}" stroke="${shStroke}" stroke-width="1.3"/>
+              <polygon points="188,98 212,125 184,135" fill="${shFill}" stroke="${shStroke}" stroke-width="1.3"/>
+            </g>
+          `;
+        }
+      }
+
+      // --- F. 無臉模特頭部、3 款髮型與 3 款眼鏡預覽 ---
+      let hairSVG = '';
+      if (hairStyleIdx === 0) {
+        // 韓系 6:4 微捲（斯文敗類推薦：眉心微開小倒 V）
+        hairSVG = `<path d="M132,42 C130,19 190,19 188,42 C194,48 192,62 186,60 C180,46 168,42 162,36 C158,44 144,48 134,60 C128,62 126,48 132,42 Z" fill="#1F1D1B"/>`;
+      } else if (hairStyleIdx === 1) {
+        // 日系暖棕空氣碎蓋
+        hairSVG = `<path d="M131,44 C130,19 190,19 189,44 C193,52 190,62 184,58 L178,52 L172,59 L164,50 L156,59 L148,51 L136,58 C130,62 127,52 131,44 Z" fill="#4B3424"/>`;
+      }
+
+      // 若衣櫥中有裝備眼鏡配件則優先套用，否則依照預覽室開關
+      let activeGlasses = eyewearPreviewIdx;
+      if (accessory?.cut === 'silver_polygon') activeGlasses = 1;
+      else if (accessory?.cut === 'browline_half') activeGlasses = 2;
+      else if (isMini) activeGlasses = outfit.mood === 'refined_villain' ? 2 : 0;
+
+      let glassesSVG = '';
+      if (activeGlasses === 1) {
+        // 不規則多邊形細銀框
+        glassesSVG = `
+          <polygon points="137,58 141,54 155,55 157,61 154,68 140,68" fill="#E0F2FE" fill-opacity="0.26" stroke="#E4E4E7" stroke-width="1.3"/>
+          <polygon points="163,61 165,55 179,54 183,58 180,68 166,68" fill="#E0F2FE" fill-opacity="0.26" stroke="#E4E4E7" stroke-width="1.3"/>
+          <line x1="157" y1="58" x2="163" y2="58" stroke="#E4E4E7" stroke-width="1.2"/>
+          <line x1="134" y1="57" x2="137" y2="58" stroke="#D4D4D8" stroke-width="1"/>
+          <line x1="183" y1="58" x2="186" y2="57" stroke="#D4D4D8" stroke-width="1"/>
+        `;
+      } else if (activeGlasses === 2) {
+        // 經典黑銀半框眼鏡
+        glassesSVG = `
+          <path d="M136,56 Q147,53 157,57 L163,57 Q173,53 184,56" fill="none" stroke="#18181B" stroke-width="2.7" stroke-linecap="round"/>
+          <polygon points="138,57 156,57 154,68 140,68" fill="#E0F2FE" fill-opacity="0.26" stroke="#D4D4D8" stroke-width="0.95"/>
+          <polygon points="164,57 182,57 180,68 166,68" fill="#E0F2FE" fill-opacity="0.26" stroke="#D4D4D8" stroke-width="0.95"/>
+          <line x1="156" y1="58" x2="164" y2="58" stroke="#D4D4D8" stroke-width="1.2"/>
+        `;
+      }
+
+      const headAndNeckSVG = `
+        <g filter="url(#softShadow)">
+          <path d="M145,78 L145,104 Q160,115 175,104 L175,78 Z" fill="url(#warmSkinGrad)"/>
+          <!-- 細銀項鍊點綴 -->
+          <path d="M143,99 Q160,119 177,99" fill="none" stroke="#E4E4E7" stroke-width="1.4"/>
+          <path d="M134,42 C134,24 186,24 186,42 L185,68 C184,80 172,90 160,90 C148,90 136,80 135,68 Z" fill="url(#mannequinHeadGrad)" stroke="#C59472" stroke-width="1"/>
+          ${hairSVG}
+          ${glassesSVG}
+        </g>
+      `;
+
+      // --- G. 3:7 黃金比例輔助線 ---
+      const guidesSVG = showGuides ? `
+        <g class="ratio-guide-layer">
+          <line x1="18" y1="112" x2="144" y2="112" stroke="#9A6B3F" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <circle cx="144" cy="112" r="3.5" fill="#9A6B3F"/>
+          <rect x="6" y="92" width="108" height="20" rx="6" fill="#1C1917" opacity="0.92"/>
+          <text x="60" y="105" font-size="9.5" fill="#FCD34D" font-weight="bold" text-anchor="middle">① V字領口修飾下顎</text>
+
+          <line x1="12" y1="236" x2="308" y2="236" stroke="#9A6B3F" stroke-width="1.8" stroke-dasharray="6 4"/>
+          <rect x="6" y="213" width="126" height="21" rx="6" fill="#9A6B3F"/>
+          <text x="69" y="227" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">② 3:7 黃金高腰線 (+5cm)</text>
+
+          <line x1="215" y1="418" x2="310" y2="418" stroke="#1C1917" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <circle cx="215" cy="418" r="3.5" fill="#1C1917"/>
+          <rect x="198" y="394" width="114" height="20" rx="6" fill="#1C1917" opacity="0.92"/>
+          <text x="255" y="407" font-size="9.5" fill="#FFFFFF" font-weight="bold" text-anchor="middle">③ 廓形寬褲拉長腿型</text>
+        </g>
+      ` : '';
+
+      return `
+        <svg id="${isMini ? '' : 'main-mannequin-svg'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 565" class="w-full h-auto select-none">
+          <ellipse cx="160" cy="542" rx="108" ry="13" fill="#000000" opacity="0.15"/>
+          ${shoesSVG}
+          ${pantsSVG}
+          ${beltSVG}
+          ${topSVG}
+          ${outerSVG}
+          ${headAndNeckSVG}
+          ${guidesSVG}
+        </svg>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. 4 大靈感版動態計分與造型師規則引擎
+    // -------------------------------------------------------------------------
+    function evaluateOutfitScore(outer, top, bottom, shoes, accessory, mood) {
+      let score = 74;
+      const tips = [];
+
+      // 1. 風格標籤加分
+      [outer, top, bottom, shoes, accessory].filter(Boolean).forEach(item => {
+        if (item.styles && item.styles.includes(mood)) score += 6;
+      });
+
+      // 2. 鞋褲絕配公式
+      if (['barrel_curved', 'sweat_wide'].includes(bottom.cut)) {
+        if (shoes.cut === 'chunky_tech' || shoes.cut === 'derby_leather') {
+          score += 14;
+          tips.push(`【鞋褲絕配】以厚底「${shoes.name}」撐起「${bottom.name}」的寬闊落地褲管，防拖地並視覺增高 4–5cm。`);
+        }
+      }
+      if (bottom.cut === 'wide_pleated') {
+        if (shoes.cut === 'flat_retro' || shoes.cut === 'derby_leather') {
+          score += 14;
+          tips.push(`【俐落腳踝銜接】「${shoes.name}」順接正面雙打褶的「${bottom.name}」，呈現修長 3:7 比例。`);
+        }
+      }
+
+      // 3. 半拉鍊與皮衣優先內搭重磅白 T 露出領口提亮
+      if (outer && ['half_zip_waffle', 'half_zip_knit', 'boxy'].includes(outer.cut)) {
+        if (top.color === 'white') {
+          score += 13;
+          tips.push(`【領口提亮法則】「${outer.name}」敞開或將拉鍊微拉約 5cm，露出內搭「${top.name}」作為臉部反光板並切出層次。`);
+        }
+      }
+
+      // 4. 斯文敗類雅痞風專屬評分規則
+      if (mood === 'refined_villain') {
+        if (bottom.cut === 'wide_pleated') {
+          score += 16;
+          tips.push(`【高智雅痞下身】垂墜感「${bottom.name}」是斯文敗類風核心，搭配細框眼鏡立刻拉滿冷欲氣場。`);
+        } else if (bottom.cut === 'sweat_wide' || bottom.cut === 'cargo_shorts') {
+          score -= 18;
+        }
+        if (outer && ['boxy', 'cuban', 'draped_shirt', 'half_zip_knit'].includes(outer.cut)) {
+          score += 14;
+          tips.push(`【微開領口與結構感】「${outer.name}」配韓系 6:4 微捲髮型，展現溫文爾雅卻具距離感的雅痞魅力。`);
+        }
+        if (top.cut === 'mock_neck') {
+          score += 16;
+          tips.push(`【禁慾系半高領】修身半高領「${top.name}」貼合頸線，疊穿在外套內質感倍增。`);
+        }
+        if (accessory && ['silver_polygon', 'browline_half'].includes(accessory.cut)) {
+          score += 16;
+          tips.push(`【靈魂眼鏡加成】已裝備你新增的「${accessory.name}」，俐落修飾方圓下顎線條。`);
+        }
+      }
+
+      // 5. 暖調膚色與進階配色加分
+      if (!outer && ['earth', 'coffee', 'oatmeal'].includes(top.color) && bottom.color === 'white') {
+        score += 12;
+        tips.push(`【老錢風大地配色】暖調大地色配奶油米白寬褲，與焦糖底鞋履上下呼應，高級感十足。`);
+      }
+      if (!outer && ['navy', 'mist_blue'].includes(top.color) && bottom.color === 'earth') {
+        score += 12;
+        tips.push(`【藍土撞色法則】深藍／霧藍與大地卡其灰褐互相襯托，單穿就能穿出日雜 City Boy 感。`);
+      }
+
+      // 6. 單穿避免上下同色（斯文敗類 All Black 例外）
+      if (!outer && top.color === bottom.color) {
+        if (mood === 'refined_villain' && top.color === 'black') {
+          score += 6;
+          tips.push(`【All Black 禁慾全黑】單穿全黑時請務必微紮上衣露出銀扣皮帶，切出腰線層次。`);
+        } else {
+          score -= 18;
+        }
+      }
+
+      if (tips.length < 2) {
+        tips.push(`【174cm 顯高秘訣】上衣正面下擺往褲頭塞一小角（French Tuck），露出腰帶位置拉長雙腿比例。`);
+      }
+
+      return { score: Math.min(99, Math.round(score + Math.random() * 4)), tips };
+    }
+
+    function generateRecommendedOutfit(forceVariant = false) {
+      const layerMode = document.getElementById('layer-mode-select').value;
+      const lockId = document.getElementById('lock-item-select').value;
+      const locked = wardrobe.find(i => i.id === lockId);
+
+      const outers = wardrobe.filter(i => i.category === 'outer');
+      const tops = wardrobe.filter(i => i.category === 'top');
+      const bottoms = wardrobe.filter(i => i.category === 'bottom');
+      const shoesList = wardrobe.filter(i => i.category === 'shoes');
+      const accList = wardrobe.filter(i => i.category === 'accessory');
+
+      if (!tops.length || !bottoms.length || !shoesList.length) {
+        showToast('衣櫥至少需要 1 件上衣、1 件褲子與 1 雙鞋子才能配對喔！', 'warn');
+        return;
+      }
+
+      const outerPool = (layerMode === 'single' && (!locked || locked.category !== 'outer'))
+        ? [null]
+        : (outers.length ? outers : [null]);
+      const accPool = accList.length ? [...accList, null] : [null];
+
+      const candidates = [];
+      outerPool.forEach(o => {
+        if (locked && locked.category === 'outer' && (!o || o.id !== locked.id)) return;
+        tops.forEach(t => {
+          if (locked && locked.category === 'top' && t.id !== locked.id) return;
+          bottoms.forEach(b => {
+            if (locked && locked.category === 'bottom' && b.id !== locked.id) return;
+            shoesList.forEach(s => {
+              if (locked && locked.category === 'shoes' && s.id !== locked.id) return;
+              accPool.forEach(acc => {
+                if (locked && locked.category === 'accessory' && (!acc || acc.id !== locked.id)) return;
+                const res = evaluateOutfitScore(o, t, b, s, acc, currentMood);
+                candidates.push({
+                  outer: o,
+                  midOuter: layerMode === 'triple' ? (wardrobe.find(x => x.id === 'o3') || null) : null,
+                  top: t, bottom: b, shoes: s, accessory: acc,
+                  score: res.score, tips: res.tips, mood: currentMood
+                });
+              });
+            });
+          });
+        });
+      });
+
+      candidates.sort((a, b) => b.score - a.score);
+      const pick = (forceVariant && candidates.length > 1)
+        ? candidates[Math.floor(Math.random() * Math.min(5, candidates.length))]
+        : candidates[0];
+
+      if (pick) {
+        currentOutfit = pick;
+        syncManualDropdowns();
+        renderStudioView();
+      }
+    }
+
+    // 造型師欽點 5 套一鍵實穿公式
+    function applyPresetLook(key) {
+      const byId = id => wardrobe.find(i => i.id === id) || wardrobe[0];
+      const byCut = (cat, cut) => wardrobe.find(i => i.category === cat && i.cut === cut);
+      const anyAcc = wardrobe.find(i => i.category === 'accessory') || null;
+
+      if (key === 'villain_oatmeal') {
+        currentMood = 'refined_villain';
+        eyewearPreviewIdx = 2;
+        document.getElementById('layer-mode-select').value = 'layered';
+        currentOutfit = {
+          outer: byId('o5'), midOuter: null, top: byId('t1'), bottom: byId('b5'),
+          shoes: byCut('shoes', 'derby_leather') || byId('s1'), accessory: anyAcc,
+          score: 99, mood: 'refined_villain',
+          tips: [
+            '【老錢風斯文敗類】「燕麥杏老錢風半拉鍊針織衫」微開立領露出重磅白 T，下身配「黑色打褶闊腿西裝褲」，溫潤中自帶高冷雅痞距離感。',
+            '【細節加成】搭配經典黑銀半框眼鏡與 6:4 微開瀏海，約會與看展回頭率極高。'
+          ]
+        };
+      } else if (key === 'waffle_street') {
+        currentMood = 'clean_fit';
+        eyewearPreviewIdx = 0;
+        document.getElementById('layer-mode-select').value = 'layered';
+        currentOutfit = {
+          outer: byId('o4'), midOuter: null, top: byId('t1'), bottom: byId('b2'),
+          shoes: byId('s2'), accessory: null,
+          score: 98, mood: 'clean_fit',
+          tips: [
+            '【華夫格韓系街頭】「淺灰華夫格半拉鍊立領衛衣」立體肌理不單調，拉鍊微開露白 T 領口，完美銜接「復古水洗彎刀牛仔褲」。',
+            '【鞋褲比例】On Cloudmonster 全黑跑鞋自然增高 4cm，徹底撐起彎刀褲管。'
+          ]
+        };
+      } else if (key === 'villain_leather') {
+        currentMood = 'refined_villain';
+        eyewearPreviewIdx = 1;
+        document.getElementById('layer-mode-select').value = 'layered';
+        currentOutfit = {
+          outer: byId('o1'), midOuter: null, top: byCut('top', 'mock_neck') || byId('t4'), bottom: byId('b5'),
+          shoes: byCut('shoes', 'derby_leather') || byId('s2'), accessory: anyAcc,
+          score: 99, mood: 'refined_villain',
+          tips: [
+            '【暗黑皮衣雅痞】水洗黑翻領皮夾克＋黑色上衣＋黑色打褶西裝寬褲，透過不同材質黑打造極具氣場的暗黑層次。',
+            '【細銀框修飾】搭配不規則多邊形細銀框眼鏡，為俐落臉型增添高智冷欲感。'
+          ]
+        };
+      } else if (key === 'cityboy_olive') {
+        currentMood = 'city_boy';
+        eyewearPreviewIdx = 0;
+        document.getElementById('layer-mode-select').value = 'layered';
+        currentOutfit = {
+          outer: byId('o2'), midOuter: null, top: byId('t3'), bottom: byId('b3'),
+          shoes: byId('s1'), accessory: null,
+          score: 97, mood: 'city_boy',
+          tips: [
+            '【日系暖陽好感】灰綠古巴領長袖襯衫＋暖調卡其上衣＋奶油米白直筒寬褲，最襯托暖調自然肌。',
+            '【領口與袖口】古巴領 V 字修飾臉型，袖口反摺露出手錶，腳踩焦糖底 Samba 溫潤復古。'
+          ]
+        };
+      } else if (key === 'athflow_mix') {
+        currentMood = 'athflow';
+        eyewearPreviewIdx = 0;
+        document.getElementById('layer-mode-select').value = 'layered';
+        currentOutfit = {
+          outer: byId('o4'), midOuter: null, top: byId('t1'), bottom: byId('b4'),
+          shoes: byId('s2'), accessory: null,
+          score: 96, mood: 'athflow',
+          tips: [
+            '【高級灰漸層 Athflow】淺灰華夫格半拉鍊衛衣配淺花灰落地棉褲，靠立體華夫格與純白內搭領口拉開高級層次。',
+            '【收斂收尾】以全黑厚底 On 跑鞋壓住整體淺色重量，舒適卻極有型。'
+          ]
+        };
+      }
+
+      updateMoodboardUI();
+      updateEyewearUI();
+      syncManualDropdowns();
+      renderStudioView();
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. 實穿室渲染與互動控制
+    // -------------------------------------------------------------------------
+    function renderStudioView() {
+      document.getElementById('svg-mannequin-wrapper').innerHTML = buildMannequinSVG(currentOutfit, { mini: false });
+
+      const moodNames = {
+        clean_fit: '韓系街頭 Clean Fit',
+        city_boy: '日系暖調 City Boy',
+        athflow: '都會運動混搭 Athflow',
+        refined_villain: '斯文敗類雅痞風'
+      };
+      document.getElementById('current-mood-badge').innerText = moodNames[currentMood] || '專屬穿搭';
+      document.getElementById('fit-score-display').innerText = `${currentOutfit.score || 96}%`;
+
+      const titlePrefix = currentOutfit.outer ? `${currentOutfit.outer.name} × ` : `${currentOutfit.top?.name || ''} × `;
+      document.getElementById('current-look-title').innerText = `${titlePrefix}${currentOutfit.bottom?.name || ''}`;
+
+      const shoeCut = currentOutfit.shoes?.cut;
+      document.getElementById('visual-height-score').innerText = shoeCut === 'derby_leather'
+        ? '視覺 180 cm (+6cm)'
+        : (shoeCut === 'chunky_tech' ? '視覺 179 cm (+5cm)' : '視覺 178 cm (+4cm)');
+
+      const entries = [];
+      if (currentOutfit.accessory) entries.push({ role: '眼鏡 / 配件', item: currentOutfit.accessory });
+      if (currentOutfit.outer) entries.push({ role: '外搭 / 襯衫 / 半拉鍊', item: currentOutfit.outer });
+      if (currentOutfit.midOuter && currentOutfit.midOuter.id !== currentOutfit.outer?.id) {
+        entries.push({ role: '中層疊穿襯衫', item: currentOutfit.midOuter });
+      }
+      if (currentOutfit.top) entries.push({ role: currentOutfit.outer ? '內搭打底上衣' : '主體單穿上衣', item: currentOutfit.top });
+      if (currentOutfit.bottom) entries.push({ role: '下身廓形褲款', item: currentOutfit.bottom });
+      if (currentOutfit.shoes) entries.push({ role: '鞋款配置', item: currentOutfit.shoes });
+
+      document.getElementById('active-items-list').innerHTML = entries.map(entry => `
+        <div class="flex items-center justify-between p-2.5 rounded-2xl bg-oat border border-stone-200/90 hover:border-stone-400 transition">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="${generateGarmentThumbnail(entry.item)}" class="w-12 h-12 rounded-xl bg-white object-contain p-1 border border-stone-200 shrink-0" alt="${entry.item.name}">
+            <div class="min-w-0">
+              <div class="text-[10px] font-bold text-camelDark uppercase">${entry.role}</div>
+              <div class="text-xs sm:text-sm font-black text-obsidian truncate">${entry.item.name}</div>
+              <div class="text-[11px] text-stone-500 truncate">${entry.item.desc || ''}</div>
+            </div>
+          </div>
+          <label class="shrink-0 ml-2 px-2.5 py-1.5 rounded-xl bg-white hover:bg-obsidian hover:text-white text-stone-700 border border-stone-300 text-[11px] font-bold cursor-pointer transition" title="更換為你的實拍照片">
+            <i class="fa-solid fa-camera mr-1"></i>換實照
+            <input type="file" accept="image/*" class="hidden" onchange="replaceGarmentPhoto(event, '${entry.item.id}')">
+          </label>
+        </div>
+      `).join('');
+
+      document.getElementById('stylist-tips-list').innerHTML = (currentOutfit.tips || []).map(t => `<li>${t}</li>`).join('');
+    }
+
+    function selectMoodboard(mood) {
+      currentMood = mood;
+      if (mood === 'refined_villain' && eyewearPreviewIdx === 0) {
+        eyewearPreviewIdx = 1;
+        updateEyewearUI();
+      }
+      updateMoodboardUI();
+      generateRecommendedOutfit();
+    }
+
+    function updateMoodboardUI() {
+      ['clean_fit', 'city_boy', 'athflow', 'refined_villain'].forEach(m => {
+        const btn = document.getElementById('mb-' + m);
+        if (!btn) return;
+        const icon = btn.querySelector('i');
+        if (m === currentMood) {
+          btn.className = 'w-full text-left p-3 rounded-2xl border-2 border-obsidian bg-obsidian text-white transition flex items-center justify-between';
+          icon.className = 'fa-solid fa-circle-check text-amber-400 shrink-0';
+        } else {
+          btn.className = 'w-full text-left p-3 rounded-2xl border-2 border-stone-200 hover:border-stone-400 bg-white text-obsidian transition flex items-center justify-between';
+          icon.className = 'fa-regular fa-circle text-stone-300 shrink-0';
+        }
+      });
+    }
+
+    function toggleGuideLines() {
+      showGuideLines = !showGuideLines;
+      const btn = document.getElementById('guide-toggle-btn');
+      btn.innerHTML = `<i class="fa-solid fa-ruler-combined"></i> 3:7 比例線：${showGuideLines ? '開' : '關'}`;
+      btn.className = showGuideLines
+        ? 'text-xs px-3 py-2 rounded-xl font-bold border border-camel bg-camel/10 text-camelDark transition flex items-center gap-1.5'
+        : 'text-xs px-3 py-2 rounded-xl font-semibold border border-stone-300 bg-white text-stone-600 transition flex items-center gap-1.5';
+      renderStudioView();
+    }
+
+    function cycleHairstyle() {
+      hairStyleIdx = (hairStyleIdx + 1) % 3;
+      const labels = ['韓系 6:4 微捲', '日系暖棕空氣碎蓋', '極簡無臉輪廓'];
+      document.getElementById('hair-style-btn').innerHTML = `<i class="fa-solid fa-user mr-1 text-stone-500"></i>髮型：${labels[hairStyleIdx]}`;
+      renderStudioView();
+    }
+
+    function updateEyewearUI() {
+      const labels = ['無眼鏡', '不規則多邊形細銀框', '經典黑銀半框'];
+      document.getElementById('eyewear-style-btn').innerHTML = `<i class="fa-solid fa-glasses mr-1 text-camel"></i>眼鏡：${labels[eyewearPreviewIdx]}`;
+    }
+
+    function cycleEyewearPreview() {
+      eyewearPreviewIdx = (eyewearPreviewIdx + 1) % 3;
+      updateEyewearUI();
+      renderStudioView();
+    }
+
+    function cycleStudioScene() {
+      studioSceneIdx = (studioSceneIdx + 1) % 3;
+      const stage = document.getElementById('mannequin-stage');
+      const classes = ['scene-studio', 'scene-cafe', 'scene-street'];
+      const labels = ['極簡灰白棚拍', '復古木窗咖啡廳', '城市灰階街景'];
+      stage.classList.remove(...classes);
+      stage.classList.add(classes[studioSceneIdx]);
+      document.getElementById('scene-style-btn').innerHTML = `<i class="fa-solid fa-camera-retro mr-1 text-stone-500"></i>場景：${labels[studioSceneIdx]}`;
+    }
+
+    function downloadMannequinSvg() {
+      const mainSvg = document.getElementById('main-mannequin-svg');
+      const defs = document.querySelector('svg defs').outerHTML;
+      if (!mainSvg) return;
+      const bgColors = ['#F1F0EC', '#E7D8C5', '#D4D4D8'];
+      const fullSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1130" viewBox="0 0 320 565">${defs}<rect width="320" height="565" fill="${bgColors[studioSceneIdx]}"/>${mainSvg.innerHTML}</svg>`;
+      const blob = new Blob([fullSvg], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `stylefit_look_${Date.now()}.svg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('已下載當前 174cm 無臉模特實穿圖 (.svg)！');
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. 數位衣櫥管理（圖片壓縮 420px / 0.8 + 新增 / 換照片 / 刪除）
+    // -------------------------------------------------------------------------
+    function compressImageFile(file, callback) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const maxW = 420;
+          let w = img.width, h = img.height;
+          if (w > maxW) {
+            h = Math.round(h * (maxW / w));
+            w = maxW;
+          }
+          if (h > 560) {
+            w = Math.round(w * (560 / h));
+            h = 560;
+          }
+          canvas.width = w;
+          canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          callback(canvas.toDataURL('image/jpeg', 0.8));
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function previewNewGarmentFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      compressImageFile(file, (dataUrl) => {
+        pendingUploadDataUrl = dataUrl;
+        const preview = document.getElementById('new-garment-preview');
+        preview.src = dataUrl;
+        preview.classList.remove('hidden');
+        document.getElementById('new-garment-placeholder').classList.add('hidden');
+        document.getElementById('ai-autotag-btn').classList.remove('hidden');
+      });
+    }
+
+    function handleAddNewGarment(event) {
+      event.preventDefault();
+      const name = document.getElementById('new-garment-name').value.trim();
+      const category = document.getElementById('new-garment-cat').value;
+      const color = document.getElementById('new-garment-color').value;
+      const cut = document.getElementById('new-garment-cut').value;
+      const checkedStyles = Array.from(document.querySelectorAll('input[name="new-garment-styles"]:checked')).map(el => el.value);
+      const styles = checkedStyles.length ? checkedStyles : ['clean_fit', 'city_boy', 'athflow', 'refined_villain'];
+
+      const newItem = {
+        id: 'custom_' + Date.now(),
+        name, category, color, cut, styles,
+        customPhoto: pendingUploadDataUrl || null,
+        desc: '個人新增實戰單品，已永久儲存於本機並加入 4 大靈感版動態配對。'
+      };
+
+      wardrobe.unshift(newItem);
+      saveWardrobeToLocal();
+      refreshAllViews();
+
+      event.target.reset();
+      pendingUploadDataUrl = null;
+      document.getElementById('new-garment-preview').classList.add('hidden');
+      document.getElementById('new-garment-placeholder').classList.remove('hidden');
+      document.getElementById('ai-autotag-btn').classList.add('hidden');
+      showToast(`已成功新增「${name}」並永久保存於本機！`);
+    }
+
+    function replaceGarmentPhoto(event, itemId) {
+      const file = event.target.files[0];
+      if (!file) return;
+      compressImageFile(file, (dataUrl) => {
+        const target = wardrobe.find(i => i.id === itemId);
+        if (target) {
+          target.customPhoto = dataUrl;
+          saveWardrobeToLocal();
+          refreshAllViews();
+          showToast(`已更新「${target.name}」實拍照片並本機存檔！`);
+        }
+      });
+    }
+
+    function requestDeleteItem(itemId) {
+      if (wardrobe.length <= 4) {
+        showToast('衣櫥至少需保留基本上下身與鞋款才能搭配喔！', 'warn');
+        return;
+      }
+      const target = wardrobe.find(i => i.id === itemId);
+      if (!target) return;
+      pendingDeleteId = itemId;
+      document.getElementById('delete-modal-text').innerText = `即將從本機數位衣櫥移除「${target.name}」，移除後可透過匯入 JSON 備份或重置預設還原。`;
+      const m = document.getElementById('delete-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeDeleteModal() {
+      pendingDeleteId = null;
+      const m = document.getElementById('delete-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function confirmDeleteItem() {
+      if (!pendingDeleteId) return;
+      const target = wardrobe.find(i => i.id === pendingDeleteId);
+      wardrobe = wardrobe.filter(i => i.id !== pendingDeleteId);
+      saveWardrobeToLocal();
+      closeDeleteModal();
+      refreshAllViews();
+      if (target) showToast(`已移除「${target.name}」`);
+    }
+
+    function tryOnSingleItem(itemId) {
+      const item = wardrobe.find(i => i.id === itemId);
+      if (!item) return;
+      document.getElementById('lock-item-select').value = itemId;
+      if (item.category === 'outer') document.getElementById('layer-mode-select').value = 'layered';
+      if (item.category === 'accessory') {
+        if (item.cut === 'silver_polygon') eyewearPreviewIdx = 1;
+        else if (item.cut === 'browline_half') eyewearPreviewIdx = 2;
+        updateEyewearUI();
+      }
+      generateRecommendedOutfit();
+      switchTab('studio');
+      showToast(`174cm 無臉模特已換上「${item.name}」！`);
+    }
+
+    function filterWardrobeCategory(cat) {
+      currentFilter = cat;
+      ['all', 'outer', 'top', 'bottom', 'shoes', 'accessory'].forEach(c => {
+        const btn = document.getElementById('filter-' + c);
+        if (!btn) return;
+        btn.className = (c === cat)
+          ? 'px-3.5 py-2 rounded-xl text-xs font-bold bg-obsidian text-white'
+          : 'px-3.5 py-2 rounded-xl text-xs font-bold bg-oat text-stone-600 hover:bg-stone-200';
+      });
+      renderWardrobeGrid();
+    }
+
+    function renderWardrobeGrid() {
+      document.getElementById('hero-wardrobe-count').innerText = wardrobe.length;
+      document.getElementById('filter-all').innerText = `全部 (${wardrobe.length})`;
+
+      const list = currentFilter === 'all' ? wardrobe : wardrobe.filter(i => i.category === currentFilter);
+      const catNames = { outer: '外搭 / 襯衫 / 半拉鍊', top: '上衣', bottom: '褲款', shoes: '鞋款', accessory: '眼鏡 / 配件' };
+      const grid = document.getElementById('wardrobe-cards-grid');
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-3xl p-10 text-center border border-dashed border-stone-300 text-stone-500">
+            <i class="fa-solid fa-glasses text-3xl text-stone-300 mb-2"></i>
+            <div class="text-sm font-bold text-stone-700">此分類目前尚無單品</div>
+            <div class="text-xs mt-1">在左側表單上傳照片即可新增，系統會立刻將它納入 4 大靈感版推薦！</div>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <div class="bg-white rounded-3xl p-4 lookbook-card border border-stone-200/90 flex flex-col justify-between hover:border-stone-400 transition">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[10px] font-black px-2.5 py-0.5 bg-oat text-stone-700 rounded-full border border-stone-200">${catNames[item.category] || '單品'}</span>
+              <button onclick="requestDeleteItem('${item.id}')" class="text-stone-300 hover:text-red-600 text-xs transition p-1" title="刪除單品">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+            <div class="h-36 bg-oat rounded-2xl overflow-hidden flex items-center justify-center relative border border-stone-100">
+              <img src="${generateGarmentThumbnail(item)}" class="w-full h-full object-contain p-2" alt="${item.name}">
+              <label class="absolute bottom-2 right-2 bg-obsidian/85 hover:bg-camel text-white text-[10px] font-bold px-2.5 py-1.5 rounded-xl cursor-pointer backdrop-blur-sm transition shadow">
+                <i class="fa-solid fa-camera mr-1"></i>更換實拍照
+                <input type="file" accept="image/*" class="hidden" onchange="replaceGarmentPhoto(event, '${item.id}')">
+              </label>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3">
+              <span class="w-3 h-3 rounded-full border border-stone-300 shrink-0" style="background-color: ${COLOR_META[item.color]?.hex || '#ccc'}"></span>
+              <h4 class="font-black text-sm text-obsidian truncate">${item.name}</h4>
+            </div>
+            <p class="text-[11px] text-stone-500 mt-1 line-clamp-2 leading-relaxed">${item.desc || ''}</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-stone-100">
+            <button onclick="tryOnSingleItem('${item.id}')" class="w-full py-2.5 bg-obsidian hover:bg-camel text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-person-rays"></i> 無臉模特試穿
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. 選填 Gemini AI 自動識圖（僅在使用者自行輸入 API Key 時啟用）
+    // -------------------------------------------------------------------------
+    function openApiModal() {
+      document.getElementById('gemini-api-key-input').value = localStorage.getItem(STORAGE_KEY_APIKEY) || '';
+      const m = document.getElementById('api-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeApiModal() {
+      const m = document.getElementById('api-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function saveApiKey() {
+      const key = document.getElementById('gemini-api-key-input').value.trim();
+      if (key) {
+        localStorage.setItem(STORAGE_KEY_APIKEY, key);
+        showToast('已儲存你的個人 Gemini API Key！');
+      } else {
+        localStorage.removeItem(STORAGE_KEY_APIKEY);
+        showToast('已停用 AI 識圖金鑰（本機離線模式持續運行）。');
+      }
+      closeApiModal();
+    }
+
+    function clearApiKey() {
+      localStorage.removeItem(STORAGE_KEY_APIKEY);
+      document.getElementById('gemini-api-key-input').value = '';
+      showToast('已清除本機儲存的 API Key。');
+    }
+
+    async function autoTagUploadedPhoto() {
+      const apiKey = localStorage.getItem(STORAGE_KEY_APIKEY);
+      if (!apiKey) {
+        openApiModal();
+        showToast('請先於彈窗貼上免費的 Gemini API Key，或直接手動選擇分類。', 'warn');
+        return;
+      }
+      if (!pendingUploadDataUrl) return;
+
+      const btn = document.getElementById('ai-autotag-btn');
+      btn.disabled = true;
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> AI 正在分析衣服色系與剪裁...`;
+
+      try {
+        const base64Data = pendingUploadDataUrl.split(',')[1];
+        const prompt = `分析這張男裝單品或眼鏡照片，回傳純 JSON（不要任何 markdown 符號）：
+{"name":"簡短繁體中文名稱","category":"top或outer或bottom或shoes或accessory","color":"black或white或oatmeal或grey或earth或coffee或olive或navy或mist_blue或plaid或silver_frame或half_frame","cut":"boxy或oversized或cuban或short_cuban或draped_shirt或half_zip_waffle或half_zip_knit或mock_neck或wide_pleated或barrel_curved或sweat_wide或cargo_shorts或flat_retro或chunky_tech或derby_leather或silver_polygon或browline_half"}`;
+
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }, { inline_data: { mime_type: 'image/jpeg', data: base64Data } }] }]
+          })
+        });
+        if (!res.ok) throw new Error('API_ERROR');
+        const data = await res.json();
+        const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+        const parsed = JSON.parse(rawText.replace(/```json|```/g, '').trim());
+
+        if (parsed.name) document.getElementById('new-garment-name').value = parsed.name;
+        if (parsed.category) document.getElementById('new-garment-cat').value = parsed.category;
+        if (parsed.color) document.getElementById('new-garment-color').value = parsed.color;
+        if (parsed.cut) document.getElementById('new-garment-cut').value = parsed.cut;
+        showToast(`AI 辨識完成：${parsed.name || '已自動填入屬性'}`);
+      } catch (err) {
+        showToast('AI 辨識失敗，請確認 API Key 是否正確，或直接手動點選下方分類。', 'warn');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles text-camel"></i> 使用 Gemini AI 自動辨識衣物屬性`;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 10. 匯出 / 匯入 JSON 備份 & 重置預設 18 件
+    // -------------------------------------------------------------------------
+    function exportWardrobeJson() {
+      const payload = {
+        app: 'STYLE_FIT_V2.2_GITHUB_PAGES',
+        exportedAt: new Date().toISOString(),
+        wardrobe,
+        wishlist
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `stylefit_v22_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('已下載衣櫥與備忘清單備份檔 (.json)！');
+    }
+
+    function importWardrobeJson(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          const importedItems = Array.isArray(parsed) ? parsed : (parsed.wardrobe || parsed.items);
+          if (!Array.isArray(importedItems) || !importedItems.length) throw new Error('INVALID');
+          wardrobe = importedItems;
+          saveWardrobeToLocal();
+          if (Array.isArray(parsed.wishlist) && parsed.wishlist.length) {
+            wishlist = parsed.wishlist;
+            saveWishlistToLocal();
+            renderWishlist();
+          }
+          refreshAllViews();
+          showToast(`已成功匯入還原 ${wardrobe.length} 件單品！`);
+        } catch (err) {
+          showToast('匯入失敗：請確認選擇的是正確的 STYLE FIT .json 備份檔。', 'warn');
+        }
+        event.target.value = '';
+      };
+      reader.readAsText(file);
+    }
+
+    function openResetModal() {
+      const m = document.getElementById('reset-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeResetModal() {
+      const m = document.getElementById('reset-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function confirmResetWardrobe() {
+      wardrobe = JSON.parse(JSON.stringify(DEFAULT_WARDROBE_18));
+      saveWardrobeToLocal();
+      closeResetModal();
+      refreshAllViews();
+      applyPresetLook('villain_oatmeal');
+      showToast('已重置回預設 18 件實戰衣櫥！');
+    }
+
+    // -------------------------------------------------------------------------
+    // 11. 下拉選單同步、一週 7 天實穿排程 & 選購備忘清單
+    // -------------------------------------------------------------------------
+    function populateDropdowns() {
+      const lockSel = document.getElementById('lock-item-select');
+      const prevLock = lockSel.value;
+      lockSel.innerHTML = '<option value="">不鎖定，交由系統配對最高分組合</option>';
+      const catMap = { outer: '外搭', top: '上衣', bottom: '褲款', shoes: '鞋款', accessory: '眼鏡/配件' };
+      wardrobe.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.id;
+        opt.innerText = `【${catMap[item.category] || '單品'}】${item.name}`;
+        lockSel.appendChild(opt);
+      });
+      if (wardrobe.some(i => i.id === prevLock)) lockSel.value = prevLock;
+
+      const fill = (id, cat, allowNone, noneLabel) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = allowNone ? `<option value="none">${noneLabel}</option>` : '';
+        wardrobe.filter(i => i.category === cat).forEach(i => {
+          const opt = document.createElement('option');
+          opt.value = i.id;
+          opt.innerText = i.name;
+          el.appendChild(opt);
+        });
+      };
+      fill('manual-outer', 'outer', true, '（不穿外搭／單穿上衣）');
+      fill('manual-top', 'top', false);
+      fill('manual-bottom', 'bottom', false);
+      fill('manual-shoes', 'shoes', false);
+      fill('manual-accessory', 'accessory', true, '（不裝備額外眼鏡/配件）');
+    }
+
+    function syncManualDropdowns() {
+      document.getElementById('manual-outer').value = currentOutfit.outer ? currentOutfit.outer.id : 'none';
+      if (currentOutfit.top) document.getElementById('manual-top').value = currentOutfit.top.id;
+      if (currentOutfit.bottom) document.getElementById('manual-bottom').value = currentOutfit.bottom.id;
+      if (currentOutfit.shoes) document.getElementById('manual-shoes').value = currentOutfit.shoes.id;
+      document.getElementById('manual-accessory').value = currentOutfit.accessory ? currentOutfit.accessory.id : 'none';
+    }
+
+    function applyManualSelection() {
+      const oId = document.getElementById('manual-outer').value;
+      const tId = document.getElementById('manual-top').value;
+      const bId = document.getElementById('manual-bottom').value;
+      const sId = document.getElementById('manual-shoes').value;
+      const aId = document.getElementById('manual-accessory').value;
+
+      const o = oId === 'none' ? null : wardrobe.find(i => i.id === oId);
+      const t = wardrobe.find(i => i.id === tId);
+      const b = wardrobe.find(i => i.id === bId);
+      const s = wardrobe.find(i => i.id === sId);
+      const acc = aId === 'none' ? null : wardrobe.find(i => i.id === aId);
+
+      const res = evaluateOutfitScore(o, t, b, s, acc, currentMood);
+      currentOutfit = { outer: o, midOuter: null, top: t, bottom: b, shoes: s, accessory: acc, score: res.score, tips: res.tips, mood: currentMood };
+      renderStudioView();
+    }
+
+    function buildDefaultWeeklySchedule() {
+      const get = (id, cat) => wardrobe.find(i => i.id === id) || wardrobe.find(i => i.category === cat);
+      const anyAcc = wardrobe.find(i => i.category === 'accessory') || null;
+      weeklySchedule = [
+        {
+          day: '週一 MON', theme: '華夫格 Clean Fit', mood: 'clean_fit',
+          outer: get('o4', 'outer'), top: get('t1', 'top'), bottom: get('b2', 'bottom'), shoes: get('s2', 'shoes'), accessory: null,
+          tips: ['淺灰華夫格半拉鍊微開露白 T，搭復古彎刀牛仔褲與 On 厚底跑鞋，俐落開啟一週。']
+        },
+        {
+          day: '週二 TUE', theme: '日系暖陽 City Boy', mood: 'city_boy',
+          outer: get('o2', 'outer'), top: get('t3', 'top'), bottom: get('b3', 'bottom'), shoes: get('s1', 'shoes'), accessory: null,
+          tips: ['莫蘭迪灰綠古巴領襯衫＋暖調卡其上衣＋奶油米白寬褲，溫潤清爽最顯白。']
+        },
+        {
+          day: '週三 WED', theme: '老錢風斯文敗類', mood: 'refined_villain',
+          outer: get('o5', 'outer'), top: get('t1', 'top'), bottom: get('b5', 'bottom'), shoes: get('s1', 'shoes'), accessory: anyAcc,
+          tips: ['燕麥杏老錢風半拉鍊針織配黑色打褶西裝寬褲與細框眼鏡，高智雅痞氣場滿分。']
+        },
+        {
+          day: '週四 THU', theme: '硬派工裝藍土配', mood: 'city_boy',
+          outer: null, top: get('t2', 'top'), bottom: get('b6', 'bottom'), shoes: get('s2', 'shoes'), accessory: null,
+          tips: ['重磅海昌深藍短 T 前紮配經典卡其工裝褲與全黑厚底跑鞋，俐落乾淨。']
+        },
+        {
+          day: '週五 FRI', theme: '暗黑皮衣約會夜', mood: 'refined_villain',
+          outer: get('o1', 'outer'), top: get('t4', 'top'), bottom: get('b5', 'bottom'), shoes: get('s2', 'shoes'), accessory: anyAcc,
+          tips: ['水洗黑翻領皮夾克＋基礎黑上衣＋黑色西裝寬褲，週五夜晚搭配細銀框眼鏡帥度封頂。']
+        },
+        {
+          day: '週六 SAT', theme: '漸層格紋看展', mood: 'city_boy',
+          outer: get('o3', 'outer'), top: get('t1', 'top'), bottom: get('b1', 'bottom'), shoes: get('s1', 'shoes'), accessory: null,
+          tips: ['BJHG 黑白漸層格紋襯衫敞開配灰褐立體繭型褲與 Adidas Samba，質感耐看。']
+        },
+        {
+          day: '週日 SUN', theme: '慵懶都會 Athflow', mood: 'athflow',
+          outer: get('o4', 'outer'), top: get('t5', 'top'), bottom: get('b4', 'bottom'), shoes: get('s2', 'shoes'), accessory: null,
+          tips: ['淺灰華夫格半拉鍊配淺花灰落地棉褲與 On 全黑跑鞋，舒適鬆弛卻充滿細節。']
+        }
+      ];
+      renderWeeklyGrid();
+    }
+
+    function shuffleWeeklySchedule() {
+      const outers = [...wardrobe.filter(i => i.category === 'outer')].sort(() => Math.random() - 0.5);
+      const tops = [...wardrobe.filter(i => i.category === 'top')].sort(() => Math.random() - 0.5);
+      const bottoms = [...wardrobe.filter(i => i.category === 'bottom')].sort(() => Math.random() - 0.5);
+      const shoesList = wardrobe.filter(i => i.category === 'shoes');
+      const anyAcc = wardrobe.find(i => i.category === 'accessory') || null;
+
+      const metaDays = [
+        { day: '週一 MON', theme: '韓系 Clean Fit', mood: 'clean_fit' },
+        { day: '週二 TUE', theme: '日系 City Boy', mood: 'city_boy' },
+        { day: '週三 WED', theme: '斯文敗類雅痞', mood: 'refined_villain' },
+        { day: '週四 THU', theme: '硬派工裝大地', mood: 'city_boy' },
+        { day: '週五 FRI', theme: '週末約會王牌', mood: 'refined_villain' },
+        { day: '週六 SAT', theme: '看展鬆弛層次', mood: 'clean_fit' },
+        { day: '週日 SUN', theme: '都會運動混搭', mood: 'athflow' }
+      ];
+
+      weeklySchedule = metaDays.map((m, idx) => {
+        const o = (idx === 3 || !outers.length) ? null : outers[idx % outers.length];
+        const t = tops[idx % tops.length];
+        const b = bottoms[idx % bottoms.length];
+        const s = ['barrel_curved', 'sweat_wide'].includes(b.cut)
+          ? (shoesList.find(k => k.cut === 'chunky_tech' || k.cut === 'derby_leather') || shoesList[0])
+          : (shoesList.find(k => k.cut === 'flat_retro' || k.cut === 'derby_leather') || shoesList[0]);
+        const acc = m.mood === 'refined_villain' ? anyAcc : null;
+        const res = evaluateOutfitScore(o, t, b, s, acc, m.mood);
+        return { ...m, outer: o, top: t, bottom: b, shoes: s, accessory: acc, tips: res.tips, score: res.score };
+      });
+      renderWeeklyGrid();
+      showToast('已重新洗牌一週 7 天無臉模特實穿排程！');
+    }
+
+    function renderWeeklyGrid() {
+      document.getElementById('weekly-lookbook-grid').innerHTML = weeklySchedule.map((d, idx) => `
+        <div onclick="loadWeeklyDayToStudio(${idx})" class="bg-oat hover:bg-amber-50/70 rounded-3xl p-3.5 border border-stone-200 hover:border-camel cursor-pointer transition flex flex-col justify-between group shadow-sm">
+          <div>
+            <div class="flex justify-between items-center gap-1 mb-1">
+              <span class="text-xs font-black text-obsidian">${d.day}</span>
+              <span class="text-[10px] font-bold px-2 py-0.5 bg-obsidian text-amber-300 rounded-md truncate">${d.theme}</span>
+            </div>
+            <div class="h-52 scene-studio rounded-2xl my-2 p-2 flex items-center justify-center relative overflow-hidden border border-stone-200/80">
+              ${buildMannequinSVG(d, { mini: true })}
+              <div class="absolute bottom-1.5 right-1.5 bg-obsidian/85 text-white text-[10px] px-2.5 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition font-bold">
+                點擊載入實穿室
+              </div>
+            </div>
+            <div class="space-y-1 mt-2 text-[11px]">
+              ${d.outer ? `<div class="truncate font-bold text-obsidian">🧥 ${d.outer.name}</div>` : '<div class="text-stone-400">☀️ 單穿上衣前紮</div>'}
+              <div class="truncate text-stone-700">👕 ${d.top?.name || ''}</div>
+              <div class="truncate font-bold text-obsidian">👖 ${d.bottom?.name || ''}</div>
+              <div class="truncate text-stone-600">👟 ${d.shoes?.name || ''}</div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadWeeklyDayToStudio(idx) {
+      const d = weeklySchedule[idx];
+      if (!d) return;
+      currentMood = d.mood || 'clean_fit';
+      if (currentMood === 'refined_villain' && eyewearPreviewIdx === 0) {
+        eyewearPreviewIdx = 2;
+        updateEyewearUI();
+      }
+      currentOutfit = {
+        outer: d.outer || null,
+        midOuter: null,
+        top: d.top,
+        bottom: d.bottom,
+        shoes: d.shoes,
+        accessory: d.accessory || null,
+        score: d.score || 97,
+        tips: d.tips,
+        mood: currentMood
+      };
+      updateMoodboardUI();
+      syncManualDropdowns();
+      renderStudioView();
+      switchTab('studio');
+      showToast(`已載入「${d.day}｜${d.theme}」全身實穿預覽！`);
+    }
+
+    function renderWishlist() {
+      const box = document.getElementById('wishlist-container');
+      box.innerHTML = wishlist.map((item, idx) => `
+        <label class="flex items-start gap-3 p-3 rounded-2xl border transition cursor-pointer ${item.done ? 'bg-stone-100/80 border-stone-200 opacity-70' : 'bg-oat border-stone-200/90 hover:border-camel'}">
+          <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleWishlistItem(${idx})" class="mt-0.5 w-4 h-4 accent-obsidian rounded shrink-0">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-obsidian text-amber-300">${item.season}</span>
+              <span class="font-bold text-obsidian ${item.done ? 'line-through text-stone-500' : ''}">${item.title}</span>
+            </div>
+            <p class="text-[11px] text-stone-500 mt-1 leading-relaxed">${item.note}</p>
+          </div>
+        </label>
+      `).join('');
+    }
+
+    function toggleWishlistItem(idx) {
+      if (!wishlist[idx]) return;
+      wishlist[idx].done = !wishlist[idx].done;
+      saveWishlistToLocal();
+      renderWishlist();
+    }
+
+    // -------------------------------------------------------------------------
+    // 12. 頁籤切換、全局同步與 Toast 通知系統
+    // -------------------------------------------------------------------------
+    function switchTab(tabName) {
+      ['studio', 'wardrobe', 'weekly', 'guide'].forEach(t => {
+        document.getElementById('section-' + t).classList.toggle('hidden', t !== tabName);
+        const btn = document.getElementById('tab-btn-' + t);
+        if (t === tabName) {
+          btn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition bg-obsidian text-white shadow-sm';
+        } else {
+          btn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition text-stone-600 hover:bg-stone-200/70';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function refreshAllViews() {
+      populateDropdowns();
+      renderWardrobeGrid();
+      buildDefaultWeeklySchedule();
+      if (currentOutfit.top) {
+        currentOutfit.outer = currentOutfit.outer ? (wardrobe.find(i => i.id === currentOutfit.outer.id) || null) : null;
+        currentOutfit.top = wardrobe.find(i => i.id === currentOutfit.top.id) || wardrobe.find(i => i.category === 'top');
+        currentOutfit.bottom = wardrobe.find(i => i.id === currentOutfit.bottom.id) || wardrobe.find(i => i.category === 'bottom');
+        currentOutfit.shoes = wardrobe.find(i => i.id === currentOutfit.shoes.id) || wardrobe.find(i => i.category === 'shoes');
+        currentOutfit.accessory = currentOutfit.accessory ? (wardrobe.find(i => i.id === currentOutfit.accessory.id) || null) : null;
+        syncManualDropdowns();
+        renderStudioView();
+      }
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      const el = document.createElement('div');
+      const iconClass = type === 'warn' ? 'fa-triangle-exclamation text-amber-400' : 'fa-circle-check text-emerald-400';
+      el.className = 'bg-obsidian text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-xl border border-stone-700 flex items-center gap-2.5 transition-all duration-300';
+      el.innerHTML = `<i class="fa-solid ${iconClass} shrink-0"></i><span>${message}</span>`;
+      container.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-6px)';
+        setTimeout(() => el.remove(), 300);
+      }, 3000);
+    }
+
+    // -------------------------------------------------------------------------
+    // 13. 網頁啟動入口
+    // -------------------------------------------------------------------------
+    window.onload = function() {
+      loadFromLocalStorage();
+      populateDropdowns();
+      renderWardrobeGrid();
+      buildDefaultWeeklySchedule();
+      renderWishlist();
+      applyPresetLook('villain_oatmeal');
+    };
+  </script>
+</body>
+</html>
